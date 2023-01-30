@@ -10,6 +10,9 @@ Adding complexity to the overall jet is the variation in flow out of the mouth d
 
 If a face mask is worn by the infected person while speaking the overall jet momentum may be reduced significantly, however the breakup of droplets may cause the other person to inhale more of the virus, due to the smaller droplet sizes (which reach further than droplets). If a face shield is worn by the infected person the transmission of particles (representing a virus) to the other person has been shown to be decreased [5].
 
+## Further details
+The scope of the scenario under investigation & and the numerical-based methodology used in the investigation can be found in the [next section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/2_scope-methodology.md).
+
 ## References
 1. Analytical and numerical investigation of the airflow in face masks used for protection against COVID-19 virus - implications for mask design and usage: https://arxiv.org/abs/2005.08800  
 2. Wikipedia: Transmission of COVID-19: https://en.wikipedia.org/wiki/Transmission_of_COVID-19  
