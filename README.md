@@ -17,6 +17,9 @@ The expected 'research impacts' are assuming the research objectives are achieve
 
 We believe our approach of quantifying the risk into a simpler quantity can be broadly adopted for other PPE assessment, allowing more accuracy in deciding on an appropriate level of protection for the wearer. We realise this requires the concurrent development of quantifiying and standardising 'exposure risk' (e.g. high to low risk categories of common situations), which will believe is more challenging to undertake accurately than this investigation.
 
+## Further details
+The rationale for the scenario under investigation & an introduction to the fluid dynamics involved in the scenario can be found in the [next section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/1_rationale-intro.md).
+
 ## References
 [1] Computational Fluid Dynamics: a concise introduction | Tessellate Science Learning: https://www.tessellate.science/cfd-intro/  
 [2] Research Impact Principles and Framework | Australian Research Council: https://www.arc.gov.au/about-arc/strategies/research-impact-principles-and-framework  
