@@ -2,7 +2,7 @@
 ## Summary
 _We use Computational Fluid Dynamics [1] to investigate and assess the airflow interaction between a person speaking and another person in close proximity who is wearing a commercially-available face shield._
 
-We assess this airflow with interest in tracking the motion of particulates suspended in the airflow (which could represent an airborne virus), then attempt to quantify the risk that this airborne virus is transmitted from the speaker to the other person. Once confident our modelling accurately reflects reality (via validation against experimental results and numerical parameter's sensitivity studies), we will then attempt to design a improved shield using an iterative approach, and assess it's effectiveness as compared to wearing both a face mask.
+We assess this airflow with interest in tracking the motion of particulates suspended in the airflow (which could represent an airborne virus), then attempt to quantify the risk that this airborne virus is transmitted from the speaker to the other person. Once confident our modelling accurately reflects reality (via validation against experimental results and numerical parameter's sensitivity studies), we will then attempt to design a improved shield using an iterative approach, and assess it's effectiveness as compared to status-quo products.
 
 **We believe in seeking more efficious & cost-effective preventative measures.**
 
