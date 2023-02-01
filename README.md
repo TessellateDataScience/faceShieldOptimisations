@@ -6,6 +6,12 @@ We assess this airflow with interest in tracking the motion of particulates susp
 
 **We believe in seeking more efficious & cost-effective preventative measures.**
 
+## Research deliverables
+We expect a number of outcomes that will be generated from this research:
+1. Advancing state-of-the-art knowledge with potential to affect millions of people in a significant way.
+2. Inventive products (that have Patent merit) with liberal licensing encouraging further innovation.
+3. 'Turnkey' computational paradigm (including software platform) that is ready-to-roll, supporting both pure (basic) research and also outcome #2.
+
 ## Potential _Research Impact_
 The expected 'research impacts' are assuming the research objectives are achieved. The impacts are considered in relation to the Australian Governments's position on research impact [2], and are clustered into particular groups of people:
 
