@@ -4,7 +4,7 @@ _We use Computational Fluid Dynamics [1] to investigate and assess the airflow i
 
 We assess this airflow with interest in tracking the motion of particulates suspended in the airflow (which could represent an airborne virus), then attempt to quantify the risk that this airborne virus is transmitted from the speaker to the other person. Once confident our modelling accurately reflects reality (via validation against experimental results and numerical parameter's sensitivity studies), we will then attempt to design a improved shield using an iterative approach, and assess it's effectiveness as compared to status-quo products.
 
-**We believe in seeking more efficious & cost-effective preventative measures.**
+>**We believe in seeking more effectual & cost-effective preventative measures.**
 
 ## Research deliverables
 We expect a number of outcomes that will be generated from this research:
@@ -24,7 +24,7 @@ The expected 'research impacts' are assuming the research objectives are achieve
 We believe our approach of quantifying the risk into a simpler quantity can be broadly adopted for other PPE assessment, allowing more accuracy in deciding on an appropriate level of protection for the wearer. We realise this requires the concurrent development of quantifiying and standardising 'exposure risk' (e.g. high to low risk categories of common situations), which will believe is more challenging to undertake accurately than this investigation.
 
 ## Further details
-The rationale for the scenario under investigation & an introduction to the fluid dynamics involved in the scenario can be found in the [next section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/1_rationale-intro.md).
+The rationale for the scenario under investigation & an introduction to the fluid dynamics involved in the scenario can be found in the [next section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/1_rationale-intro.md). Our current research findings can be seen in our [progress section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/3_progress.md).
 
 ## References
 [1] Computational Fluid Dynamics: a concise introduction | Tessellate Science Learning: https://www.tessellate.science/cfd-intro/  
