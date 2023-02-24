@@ -4,6 +4,9 @@
 A slice of the 3-dimensional (volume) simulation is shown below that visualises air flow patterns at a) same time to the 2D case, and b) at later on in time (when the flow is generally more developed). 
 
 <img src="3D-streamlines_t10.png" width="500" height="300"/> <img src="3D-streamlines_t75.png" width="500" height="300"/> 
+<p align="center"><i>
+  Images showing visualisation of instantaneous airflow patterns at differing times: (left) the same time as the 2-dimensinal simulation's visualisation, and (right) a later time in the simulation.
+</i></p>
 
 At the same time as the 2D simmulation the 3D airflow shows a very similar pattern to the simplified 2D case flow (see Investigation A below for more characterisation). At the later time the flow has developed to a degree where the vortices have convected downstream and around the second person's head. The jet has also changed trajectory as it approaches the second person, becoming more horizontally oriented across it's height (less divergent away from the centreline as compared to the earlier time).
 
