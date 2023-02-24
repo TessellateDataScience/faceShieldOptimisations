@@ -10,6 +10,9 @@ A slice of the 3-dimensional (volume) simulation is shown below that visualises 
 
 At the same time as the 2D simmulation the 3D airflow shows a very similar pattern to the simplified 2D case flow (see Investigation A below for more characterisation). At the later time the flow has developed to a degree where the vortices have convected downstream and around the second person's head. The jet has also changed trajectory as it approaches the second person, becoming more horizontally oriented across it's height (less divergent away from the centreline as compared to the earlier time).
 
+#### Discussion and implications
+Another similar slice perpendicular to the slice above shows a similar (axis-symmetric) pattern. Note, as this simulation is a preliminary (early) attempt, further assessment of our simulation results need to be done to ensure our results are accurate depictions of the 'real-world' flow that we are attempting to investigate.
+
 ## Investigation A: 2-dimensional flow
 ### Description of airflow
 Simplified 2-dimensional airflow (infinitely-thin, horizontal cross-section) shows the air from the jet produced by mouth (left circle represents person speaking) travelling away and outward from centreline, reaching the second person (represented by right circle) then flowing around them. A visualisation image representing this simplified 2D flow regime is shown below.
