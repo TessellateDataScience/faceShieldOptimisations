@@ -1,4 +1,4 @@
-# Numerical investigation of speech-driven airflow between two people: quantification of face shields' effectiveness against airborne transmission of viruses for the wearer
+# Numerical investigation of speech-driven airflow between two people: quantification of face shields' effectiveness against airborne transmission of COVID-19 for the wearer
 ## Summary
 _We use Computational Fluid Dynamics [1] to investigate and assess the airflow interaction between a person speaking and another person in close proximity who is wearing a commercially-available face shield._
 
