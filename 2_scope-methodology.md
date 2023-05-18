@@ -24,6 +24,8 @@ All applicable content is released under a Creative Commons License. Specificall
 
 All applicable intellectual property (IP) we generate is made available under an Open COVID License. Specifically, our IP is released under their Patent and Copyright version 1.1 license. See the [OCL-PC v1.1 license](https://opencovidpledge.org/v1-1-ocl-pc/) for more specific details.
 
+Due to this IP license expiring, we have from the date of it's expiry adopted our own pledge (defined within this document as 'Our Pledge'). Our Pledge includes an infinite duration that this license has adopted as it's Time Limitation clause. 
+
 ## References
 5.  a) Experimental Investigation of the Flow Structure on a Face Mannequin With / Without a Face Shield: https://dergipark.org.tr/en/download/article-file/1675241  
     b) Experimental Efficacy of the Face Shield and the Mask against Emitted and Potentially Received Particles: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7922468/
