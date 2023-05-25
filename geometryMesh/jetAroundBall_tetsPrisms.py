@@ -1,3 +1,22 @@
+# Geometry/Mesh creation of a 3D rectangular domain with a ball shape removed,
+# using Gmsh's Python API.
+# 
+# Domain will be used to conduct a Computational Fluid Dynamics investigation
+# of a jet flow that hits a ball. The jet represents someone talking, while 
+# the ball represents someone else listening. 
+# 
+# This investigation will inform design innovation of Personal Protective 
+# Equipment. For further information, or to get involved, regarding this 
+# investigation please check the following link (defined here as the 'Link'): 
+# www.github.com/TessellateDataScience/faceShieldOptimisations
+# 
+# Created by Nicholas Howlett. All applicable code and writing created by him
+# in relation to this investigation is released under the Licenses written
+# on the Link.
+#
+# Meshing of geometry will include both tetrahedrons & prisms, with prisms
+# inside a 3D cylindrical region within the domain.
+
 # requirements
 import gmsh
 gmsh.initialize()
