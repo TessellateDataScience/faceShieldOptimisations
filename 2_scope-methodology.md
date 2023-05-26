@@ -19,13 +19,6 @@ At the start modelling the flow out of the mouth will be done assuming a steady-
 
 Due to our non-empirical experimental method, certain activities such as validation and verification should be also undertaken to provide confidence our numerical experiments are accurate reflections of the 'real-world', while also ensuring error introduced by the numerical methods are non-significant. Specifically our numerical results will be validated against experimental results, similar to some already experimentally investigated [7]. We will also verify the insensitivity of numerical results to numerically-based parameters used to generate these results, focussing especially on turbulence-related methods and parameters.
 
-## Intellectual property
-All applicable content is released under a Creative Commons License. Specifically, our content is available under their Attribution 4.0 International Public License. See the [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/) for more specific details.
-
-All applicable intellectual property (IP) we generate is made available under an Open COVID License. Specifically, our IP is released under their Patent and Copyright version 1.1 license. See the [OCL-PC v1.1 license](https://opencovidpledge.org/v1-1-ocl-pc/) for more specific details.
-
-Due to this IP license expiring, we have from the date of it's expiry adopted our own pledge (defined within this document as 'Our Pledge'). Our Pledge includes an infinite duration that this license has adopted as it's Time Limitation clause. 
-
 ## References
 5.  a) Experimental Investigation of the Flow Structure on a Face Mannequin With / Without a Face Shield: https://dergipark.org.tr/en/download/article-file/1675241  
     b) Experimental Efficacy of the Face Shield and the Mask against Emitted and Potentially Received Particles: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7922468/
