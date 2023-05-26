@@ -3,13 +3,6 @@ Some researchers argue that face masks likely don't have the level of protection
 
 To assess the protective ability of shields requires we understand and quantify the airflow dynamics around them. We limit ourselves to investigating the fluid dynamics of an interaction between two people in a common settings such as when speaking in no-velocity (surrounding) airflow environments which could represent places such as hospitals, schools/universities, and offices.
 
-## Use of our work
-All applicable content is released under a Creative Commons License. Specifically, our content is available under their Attribution 4.0 International Public License. See the [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/) for more specific details.
-
-All applicable intellectual property (IP) we generate is made available under an Open COVID License. Specifically, our IP is released under their Patent and Copyright version 1.1 license. See the [OCL-PC v1.1 license](https://opencovidpledge.org/v1-1-ocl-pc/) for more specific details.
-
-Due to this IP license expiring, we have from the date of it's expiry adopted our own pledge (defined within this document as 'Our Pledge'). Our Pledge includes an infinite duration that this license has adopted as it's Time Limitation clause. 
-
 ## Introduction
 The fluid dynamics of airflow involved comprises a combination of likely turbulent jet flow and potentially two-phase flow [3]. A turbulent jet normally appears emanating from the person speaking, which is carried forwards. Droplets containing the virus, also present in speaking, tend to fall towards the ground at increasingly shorter distances for higher sizes, while increasingly smaller-sized ones tend to follow the airflow pattern more closely.
 
