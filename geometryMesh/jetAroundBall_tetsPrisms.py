@@ -10,9 +10,9 @@
 # investigation please check the following link (defined here as the 'Link'): 
 # www.github.com/TessellateDataScience/faceShieldOptimisations
 # 
-# Created by Nicholas Howlett. All applicable code and writing created by him
-# in relation to this investigation is released under the Licenses written
-# on the Link.
+# All content is owned by Tessellate Data Science. All applicable code and 
+# writing created by them in relation to this investigation is released under
+# the Licenses written on the Link.
 #
 # Meshing of geometry will include both tetrahedrons & prisms, with prisms
 # inside a 3D cylindrical region within the domain.
