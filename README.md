@@ -13,7 +13,7 @@ All applicable intellectual property (IP) we generate is made available under an
 
 Due to this IP license expiring, we have from the date of it's expiry adopted our own pledge (defined within this document as 'Our Pledge'). Our Pledge includes an infinite duration that this license has adopted as it's Time Limitation clause. 
 
-Potential collaborators are encouraged to only contribute Content that they intend to give to Tessellate Data Science where there is low legal conflict regarding any IP that may be generated from this Content (exploitation of IP on both sides: ours and yours).
+Potential collaborators are encouraged to only contribute Content that they intend to give to Tessellate Data Science, and also where there is low legal conflict regarding any IP that may be generated from this Content (exploitation of IP on both sides: ours and yours).
 
 ## Research deliverables
 We expect a number of outcomes that will be generated from this research:
