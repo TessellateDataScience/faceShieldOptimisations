@@ -7,7 +7,7 @@ We assess this airflow with interest in tracking the motion of particulates susp
 >**We believe in seeking more effectual & cost-effective preventative measures.**
 
 ## Use of our work
-All applicable content is released under a Creative Commons License. Specifically, our content is available under their Attribution 4.0 International Public License. See the [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/) for more specific details.
+All content (textual, video, spoken) is property of Tessellate Data Science. Such applicable content is released under a Creative Commons License. Specifically, our content is available under their Attribution 4.0 International Public License. See the [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/) for more specific details.
 
 All applicable intellectual property (IP) we generate is made available under an Open COVID License. Specifically, our IP is released under their Patent and Copyright version 1.1 license. See the [OCL-PC v1.1 license](https://opencovidpledge.org/v1-1-ocl-pc/) for more specific details.
 
