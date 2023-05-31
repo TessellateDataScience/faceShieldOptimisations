@@ -4,7 +4,7 @@ _We use Computational Fluid Dynamics [1] to investigate and assess the airflow i
 
 We assess this airflow with interest in tracking the motion of particulates suspended in the airflow (which could represent an airborne virus), then attempt to quantify the risk that this airborne virus is transmitted from the speaker to the other person. Once confident our modelling accurately reflects reality (via validation against experimental results and numerical parameter's sensitivity studies), we will then attempt to design a improved shield using an iterative approach, and assess it's effectiveness as compared to status-quo products.
 
->**We believe in seeking more effectual & cost-effective preventative measures.**
+>**We believe that healthcare should be for all, not just the rich.**
 
 ## Use of our work
 All textual, video, spoken material (named 'Content') is property of Tessellate Data Science. Such applicable Content is released under a Creative Commons License. Specifically, our Content is available under their Attribution 4.0 International Public License. See the [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/) for more specific details.
