@@ -1,14 +1,15 @@
 ## Scope
-Although the inhalation of droplets may be reduced significantly if a face shield is worn by the virus-free person [5], we assert this mitigation effect may still be improved if we redesign this shield to reduce even more the proportion of smaller-sized droplets into the nose. 
+Although the inhalation of droplets may be reduced significantly if a face shield is worn by the virus-free person [5], we assert this effectivness may still be improved if we redesign this shield to reduce even more the proportion of smaller-sized droplets into the nose. 
 
 To do this we first aim to check the effectiveness of face shields that are currently commercially available. Then we will investigate the effectiveness of a proposed novel face shield, and compare the results.
 
 Our investigation will focus on varying particular variables, including:
-- depth of face shield relative from it's front to the wearer's face,
-- distance from the wearer to the speaker, and
-- non-conventional design modifications of the face shield.
+- 'viral load' of person speaking,
+- source velocity (momentum), 
+- depth of face shield relative from it's front to the wearer's face, and
+- non-conventional design modifications of the shield itself.
 
-These scenarios will both be investigated with the assumption that the person not speaking will be inhaling at their maximum volumetric rate, and inhaling fully thru their nose. The speaking person's jet characteristics will be idealised, based on experimental data [6] where available, and assumed to point directly towards the wearer of the shield. The face shield's dimensional characteristics will be averaged from common, commercially-available products [^1].
+These scenarios will both be investigated with the assumption that the person not speaking will be inhaling at their maximum volumetric rate, and inhaling fully thru their nose. The speaking person's jet characteristics will be idealised, based on experimental data [6] where available, and assumed to point directly towards the wearer of the shield. The environment near the jet will also be assumed to have zero flow. The face shield's dimensional characteristics will be averaged from common, commercially-available products [^1].
 
 ## Methodology
 Computational Fluid Dynamics (CFD) will be used to conduct a number of numerical experiments where various parameters are varied. To achieve this within a shortened timeframe the [OpenFOAM](https://openfoam.org/) software will be used to run numerous, simultaneous CFD simulations on self-owned infrastructure (to reduce cost).
