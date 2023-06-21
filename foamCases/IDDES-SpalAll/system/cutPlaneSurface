@@ -14,7 +14,7 @@ Description
 point       (0 0 -5);
 normal      (0 0 1);
 
-fields      (mag(U) k nut s nuTilda);
+fields      (U k nut s nuTilda);
 
 interpolate true; // If false, write cell data to the surface triangles.
                   // If true, write interpolated data at the surface points.

@@ -19,8 +19,8 @@ DES:
 ## caseSetup
 ```
 ipython: %run ./mesh2dJetWithoutBall.py  
-gmshToFoam mesh3dJet_withShield_noHeads.msh  
 rm -rf ./constant/polyMesh  
+gmshToFoam mesh3dJet_withShield_noHeads.msh  
 transformPoints scale="(0.001 0.001 0.001)"  
 topoSet  
 createBaffles -overwrite  

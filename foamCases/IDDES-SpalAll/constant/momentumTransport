@@ -36,14 +36,4 @@ LES
 
 }
 
-RAS
-{
-    RASModel        SpalartAllmaras;
-
-    turbulence      on;
-
-    printCoeffs     on;
-}
-
-
 // ************************************************************************* //
