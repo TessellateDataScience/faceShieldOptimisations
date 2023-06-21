@@ -22,8 +22,20 @@ boundaryField
 {
     mouth
     {
-        type            zeroGradient;
+        type            uniformFixedValue;
+        uniformValue
+        {
+            type             tableFile;
+            format           csv;
+            nHeaderLine      0;              // number of header lines
+            refColumn        0;              // time column index
+            componentColumns (1);            // data column index
+            separator        " ";            // optional (defaults to ",")
+            mergeSeparators  no;             // merge multiple separators
+            file             "mouthPressure.csv";
+       }
     }
+
     atmos
     {
         type            fixedValue;

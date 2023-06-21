@@ -29,3 +29,9 @@ pisoFoam
 ps  
 kill -9 <PID>  
 ```
+
+## Further development
+1. Mesh refinement adjacent the shield.  
+2. Numerical parameters adjustment.  
+3. Grid sensitivity study.
+4. Turbulence parameters optimisation.
