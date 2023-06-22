@@ -1,0 +1,60 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    mouth
+    {
+        type            uniformFixedValue;
+        uniformValue    
+        {
+            type            table;
+            format          csv;
+            file            "mouthPressure.csv";
+            nHeaderLine     0;
+            refColumn       0;
+            componentColumns List<label> 1(1);
+            separator       " ";
+            mergeSeparators 0;
+        }
+        value           uniform 7;
+    }
+
+    atmos
+    {
+        type            zeroGradient;
+        
+        //type            fixedValue;
+        //value           uniform 0;
+    }
+
+    baffle0
+    {
+        type            zeroGradient;
+    }
+
+    baffle1
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //
