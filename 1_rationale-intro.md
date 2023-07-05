@@ -24,7 +24,7 @@ Video introducing the fluid dynamics of speech-driven flow [4].
 
 Interestingly, plosive sounds (e.g. 'k' & 'p' sounds) that could be expected to affect the flow downstream (due their relatively higher momentum as compared to non-plosive speech) have been modelled as relatively insignificantly affecting the flow [5], thus steady-state boundary conditions may suffice for more macro flow qualities. However, the modelling assumption of no change in mouth size during production of such plosives is questionable at an instantaneous flow level.
 
-If a face mask is worn by the infected person while speaking the overall jet momentum may be reduced significantly, however the breakup of droplets may cause the other person to inhale more of the virus, due to the smaller droplet sizes (which reach further than droplets). If a face shield is worn by the infected person the transmission of particles (representing a virus) to the other person has been shown to be decreased [6].
+Separately, if a face mask is worn by the infected person while speaking the overall jet momentum may be reduced significantly, however the breakup of droplets may cause the other person to inhale more of the virus, due to the smaller droplet sizes (which reach further than droplets). If a face shield is worn by the infected person the transmission of particles (representing a virus) to the other person has been shown to be decreased [6].
 
 ## Further details
 The scope of the scenario under investigation & and the numerical-based methodology used in the investigation can be found in the [next section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/2_scope-methodology.md).
