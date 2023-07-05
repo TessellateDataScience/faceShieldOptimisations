@@ -6,6 +6,9 @@ To assess the protective ability of shields requires we understand and quantify 
 ## Introduction
 The fluid dynamics of speech-driven airflow comprises a combination of likely turbulent jet flow and potentially two-phase flow [3]. A turbulent jet normally appears emanating from the person speaking, which is carried forwards. Droplets containing the virus, also present in speaking, tend to fall towards the ground at increasingly shorter distances for higher sizes, while increasingly smaller-sized ones tend to follow the airflow pattern more closely.
 
+[<img src="https://img.youtube.com/vi/yij0M-w32_g/hqdefault.jpg" width="800" height="600"
+/>](https://www.youtube.com/embed/yij0M-w32_g)
+
 Interestingly, plosive sounds (e.g. 'k' & 'p' sounds) that could be expected to affect the flow downstream (due their relatively higher momentum as compared to non-plosive speech) have been modelled as relatively insignificantly affecting the flow [4], thus steady-state boundary conditions may suffice - leading one to believe older research into 'steady jets' may be applicable and insightful. 
 
 If a face mask is worn by the infected person while speaking the overall jet momentum may be reduced significantly, however the breakup of droplets may cause the other person to inhale more of the virus, due to the smaller droplet sizes (which reach further than droplets). If a face shield is worn by the infected person the transmission of particles (representing a virus) to the other person has been shown to be decreased [5].
