@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     pimpleFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         60.0;
+
+deltaT          0.0001;
+
+adjustTimeStep  yes;
+
+writeControl    runTime;
+
+writeInterval   0.5;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  3;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   3;
+
+runTimeModifiable yes;
+
+functions
+{
+    //#includeFunc mag(U)
+    
+    /*probes
+    {
+        type                probes;
+        functionObjectLibs  ("libsampling.so");
+        enabled             true;
+        outputControl       timeStep;
+        outputInterval      1;
+
+        fields (mag(U));
+
+        probeLocations
+        (
+          (-0.1 0.85 0.005)
+          (0 0.85 0.005)
+          (0.1 0.85 0.005)
+        );*/
+    }
+}
+
+// ************************************************************************* //
