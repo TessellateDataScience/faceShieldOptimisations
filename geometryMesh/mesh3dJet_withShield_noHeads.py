@@ -1,10 +1,16 @@
-# Gmsh meshing file: executes error-free using GMSH 4.11.1 
-#
 # File created and owned by Tessellate Data Science (www.tessellate.science). You can 
 # re-use this file as long as you abide by own licencing. We're aiming to encourage 
-# innovation, so any activity that hinders this goes against our wishes/intentions.
+# innovation, so any activity that hinders this goes against our intentions.
 #
-# Code within file adapted from Martin Einarsve's domain of flow around a cylinder: 
+# This file creates a domain of a 3D rectangle with a blunt body (representing a 
+# shield) downstream of the jet (which is flowing into this domain). 
+# 
+# This template can be used to specify domain size and mesh resolution (without 
+# grading). The 3D domain is meshed using an O-grid surface grid topology that is 
+# extruded in the 3rd direction with structured grids.
+#
+# Thanks to Martin Einarsve for openly sharing his code for 'flow around a cylinder' 
+# which has been adapted within this file: 
 # https://github.com/meinarsve/CFDwOpenFoam/tree/master/LaminarVortexShedding
 
 # requirements
@@ -13,7 +19,8 @@ gmsh.initialize()
 gmsh.clear()
 
 
-# modify: parameters [mm]
+# MODIFY: major parameters [mm]. You will also need to adjust further mesh 
+# parameters below (specifically 'hex-mesh density').
 nameModel = "mesh3dJet_withShield_noHeads"
 mouthWidth = 50
 mouthHeight = 20
@@ -119,7 +126,7 @@ blockL4Surf = geoMod.addPlaneSurface([blockL4Curve])
 geoMod.synchronize()
 
 
-# set hex-mesh density
+# MODIFY: hex-mesh density
 geoMod.mesh.setTransfiniteCurve(lineMouth1, 20)
 geoMod.mesh.setTransfiniteCurve(lineMouth2, 19)
 geoMod.mesh.setTransfiniteCurve(lineMouth3, 19)
