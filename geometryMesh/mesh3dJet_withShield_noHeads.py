@@ -2,12 +2,14 @@
 # re-use this file as long as you abide by own licencing. We're aiming to encourage 
 # innovation, so any activity that hinders this goes against our intentions.
 #
-# This file creates a domain of a 3D rectangle with a blunt body (representing a 
-# shield) downstream of the jet (which is flowing into this domain). 
+# This file creates a domain of a 3D rectangle while allowing a blunt body 
+# (representing a shield) to be easily created in OpenFOAM within this domain. The 
+# flow originates from a jet upstream (which is flowing around the shield). 
 # 
-# This template can be used to specify domain size and mesh resolution (without 
-# grading). The 3D domain is meshed using an O-grid surface grid topology that is 
-# extruded in the 3rd direction with structured grids.
+# This template can be used to specify domain size, and mesh resolution and grading. 
+# The 3D domain is meshed using an O-grid surface grid topology that is extruded in 
+# the 3rd direction with structured grids. The structured grid can be graded to allow 
+# relaxation of the grid away from the shield (blunt body). 
 #
 # Thanks to Martin Einarsve for openly sharing his code for 'flow around a cylinder' 
 # which has been adapted within this file: 
@@ -20,15 +22,15 @@ gmsh.clear()
 
 
 # MODIFY: major parameters [mm]. You will also need to adjust further mesh 
-# parameters below (specifically 'hex-mesh density').
+# parameters below (specifically 'hex-mesh density' & 'streamwise grid grading')
 nameModel = "mesh3dJet_withShield_noHeads"
 mouthWidth = 50
 mouthHeight = 20
 shieldLength =200
 distanceMouthToShield = 1500
 distanceBehindShield = 500
-meshSize = 5
-meshDepthSize = 30
+meshSize = 10
+meshDepthSize = 50
 
 
 # definitions
@@ -38,16 +40,16 @@ geoMod = gmsh.model.geo
 
 # mouth surface
 centre = geoMod.addPoint(0, 0, 0, meshSize)
-yPlus = geoMod.addPoint(0, mouthWidth / 2, 0, meshSize)
 xPlus = geoMod.addPoint(mouthHeight / 2, 0, 0, meshSize)
-yMinus = geoMod.addPoint(0, -(mouthWidth / 2), 0, meshSize)
+yPlus = geoMod.addPoint(0, mouthWidth / 2, 0, meshSize)
 xMinus = geoMod.addPoint(-(mouthHeight / 2), 0, 0, meshSize)
+yMinus = geoMod.addPoint(0, -(mouthWidth / 2), 0, meshSize)
 
 majorAxis = 2 # y-axis
-lineMouth1 = geoMod.addEllipseArc(yPlus, centre, majorAxis, xPlus)
-lineMouth2 = geoMod.addEllipseArc(xPlus, centre, majorAxis, yMinus)
-lineMouth3 = geoMod.addEllipseArc(yMinus, centre, majorAxis, xMinus)
-lineMouth4 = geoMod.addEllipseArc(xMinus, centre, majorAxis, yPlus)
+lineMouth1 = geoMod.addEllipseArc(xPlus, centre, majorAxis, yPlus)
+lineMouth2 = geoMod.addEllipseArc(yPlus, centre, majorAxis, xMinus)
+lineMouth3 = geoMod.addEllipseArc(xMinus, centre, majorAxis, yMinus)
+lineMouth4 = geoMod.addEllipseArc(yMinus, centre, majorAxis, xPlus)
 
 mouthCurve = geoMod.addCurveLoop([lineMouth1, lineMouth2, lineMouth3, lineMouth4])
 mouthSurf = geoMod.addPlaneSurface([mouthCurve])
@@ -127,10 +129,10 @@ geoMod.synchronize()
 
 
 # MODIFY: hex-mesh density
-geoMod.mesh.setTransfiniteCurve(lineMouth1, 20)
-geoMod.mesh.setTransfiniteCurve(lineMouth2, 19)
-geoMod.mesh.setTransfiniteCurve(lineMouth3, 19)
-geoMod.mesh.setTransfiniteCurve(lineMouth4, 18)
+geoMod.mesh.setTransfiniteCurve(lineMouth1, 10)
+geoMod.mesh.setTransfiniteCurve(lineMouth2, 9)
+geoMod.mesh.setTransfiniteCurve(lineMouth3, 9)
+geoMod.mesh.setTransfiniteCurve(lineMouth4, 8)
 
 geoMod.mesh.setTransfiniteCurve(lineCyl1, 20)
 geoMod.mesh.setTransfiniteCurve(lineCyl2, 19)
@@ -178,16 +180,54 @@ geoMod.mesh.setRecombine(2, blockL1Surf)
 geoMod.mesh.setRecombine(2, blockL2Surf)
 geoMod.mesh.setRecombine(2, blockL3Surf)
 geoMod.mesh.setRecombine(2, blockL4Surf)
+geoMod.synchronize()
 
 
-# define mesh depth parameters
+# MODIFY: streamwise grid grading
+N = 61 					# number elements
+r = 0.97291 			# ratio
+d = [meshDepthSize] 	# first element thickness
+for i in range(1, N): 
+	d.append(d[-1] + (d[0]) * r**i)
+d.reverse()
+D = []
+for d_i in d:
+	D.append(d_i - 1500)
+heights = []
+for D_i in D:
+	heights.append(D_i * -1)
+heights.pop(0)
+heights.append(1500)
+h_norm = []
+for h_i in heights:
+	h_norm.append(h_i / 1500)
+
+N2 = 32
+r = 1.0272
+d2 = [10]
+for i in range(1, N2):
+	d2.append(d2[-1] + (d2[0]) * r**i)
+d2.pop()
+d2.append(500)
+hShield_norm = []
+for d2_i in d2:
+	hShield_norm.append((d2_i / 500) * +1)
+
+# 3D grid creation
+gmsh.model.mesh.generate(2)
 extrusionParams = [(2, mouthSurf), (2, cylSurf), (2, block1Surf), (2, block2Surf), 
 				   (2, block3Surf), (2, block4Surf), (2, blockL1Surf), 
 				   (2, blockL2Surf), (2, blockL3Surf), (2, blockL4Surf)]
-extrudeData1 = gmsh.model.geo.extrude(extrusionParams, 0, 0, distanceMouthToShield, 
-	[distanceMouthToShield / meshDepthSize], recombine = True)
-extrudeData2 = gmsh.model.geo.extrude(extrusionParams, 0, 0, -distanceBehindShield, 
-	[distanceBehindShield / meshDepthSize], recombine = True)
+ext1 = geoMod.extrude(extrusionParams, 
+					  0, 0, 1500,
+ 					  numElements = [1] * N, 
+ 					  heights = h_norm, 
+ 					  recombine = True)
+ext2 = geoMod.extrude(extrusionParams, 
+					  0, 0, -distanceBehindShield, 
+					  numElements = [1] * N2,
+					  heights = hShield_norm, 
+					  recombine = True)
 geoMod.synchronize()
 
 
@@ -241,5 +281,5 @@ gmsh.write(nameModel + ".msh")
 
 
 # view in graphical user-interface (GUI)
-gmsh.fltk.run()
+#gmsh.fltk.run()
 gmsh.finalize()
