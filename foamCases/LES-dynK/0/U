@@ -28,10 +28,14 @@ boundaryField
     {
         type            zeroGradient;
     }
+    wall
+    {
+        type            noSlip;
+    }
     mouth
     {
         type            turbulentInlet;
-        referenceField  uniform (10 00 0);
+        referenceField  uniform (0 0 10);
         fluctuationScale (0.01 0.01 0.01);
     }
 }

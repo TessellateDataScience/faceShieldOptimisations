@@ -46,7 +46,7 @@ PIMPLE
     nNonOrthogonalCorrectors 2;
     nCorrectors             3;
 
-    maxCo                   5;
+    //maxCo                   5;
     //rDeltaTSmoothingCoeff   0.1;
     //maxDeltaT               1;
 }

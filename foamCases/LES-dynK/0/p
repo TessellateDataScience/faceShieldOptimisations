@@ -29,6 +29,10 @@ boundaryField
         type            fixedValue;
         value           uniform 0;
     }
+    wall
+    {
+        type            zeroGradient;
+    }
     mouth
     {
         type            zeroGradient;

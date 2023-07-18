@@ -29,6 +29,11 @@ boundaryField
         type            fixedValue;
         value           uniform 0.0001;
     }
+    wall
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
     mouth
     {
         type            inletOutlet;

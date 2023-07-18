@@ -28,6 +28,10 @@ boundaryField
     {
         type            zeroGradient;
     }
+    wall
+    {
+        type            zeroGradient;
+    }
     mouth
     {
         type            zeroGradient;
