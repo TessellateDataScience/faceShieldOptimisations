@@ -1,37 +1,17 @@
-# OpenFOAM simulation setup
-## General advice
-General:  
-- run 'caseSetup' from start each time (to remove errors)  
+# README: OpenFOAM simulations
+## Summary
+Our cases (simulation configuration files) are developed/testing in OpenFOAM version 10. Prior to running OpenFOAM, our mesh (and geometry) was developed using GMSH 4.11. Below is some advice for getting your computations functioning:
 
-Meshing:  
+## Meshing 
 - view the geometry/mesh before debugging.  
-- common issues: syntax: using combination of geo/occ module: results in successful execution but no mesh elements.  
+- using combination of geo/occ module: results in successful execution but no meshed elements.  
+- sometimes GMSH complains it's 'too busy', simply reload IPython and try again.
 
-Internal surfaces:  
-- create using Foam utilities (no entity in boundary file on mesh creation):  
-	- see /system/topoSetDict & /system/createBafflesDict.  
-- https://github.com/OpenFOAM/OpenFOAM-10/tree/master/tutorials/incompressible/pimpleFoam/RAS/TJunctionFan  
-- https://github.com/OpenFOAM/OpenFOAM-4.x/tree/master/applications/utilities/mesh/manipulation/createBaffles  
+## Checking mesh
+- when using checkMesh utility: 
+	- ensure the 'shield' patches have been created properly.
+	- ensure you receive 'OK' for your mesh.
 
-DES:  
-- https://www.youtube.com/watch?v=q_lWmfgkZsU  
-
-## caseSetup
-```
-[ipython] %run ./mesh.py  
-rm -rf ./constant/polyMesh  
-gmshToFoam mesh.msh  
-transformPoints scale="(0.001 0.001 0.001)"  
-topoSet  
-createBaffles -overwrite  
-checkMesh  
-pisoFoam  
-ps  
-kill -9 <PID>  
-```
-
-## Further development
-1. Mesh refinement adjacent the shield.  
-2. Numerical parameters adjustment.  
-3. Grid sensitivity study.
-4. Turbulence parameters optimisation.
+## OpenFOAM
+- Software design of errors leaving 'trace' of code issues (usually syntax-related, especially lacking definitions due to scarce documentation).
+- use 'banana trick' of inserting this dummy value to gain more details from OpenFOAM of exact syntax to use. 
