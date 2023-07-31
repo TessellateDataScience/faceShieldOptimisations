@@ -20,33 +20,32 @@ internalField   uniform 0;
 
 boundaryField
 {
-
-    mouth
+    empty
     {
-        type            zeroGradient;
+        type            empty;
     }
-    atmos
+    mouth
     {
         type            zeroGradient;
     }
     wall
     {
         type            nutUSpaldingWallFunction;
-        value           $internalField;
+        value           uniform 0;
+    }
+    atmos
+    {
+        type            zeroGradient;
     }
     baffle0
     {
         type            nutUSpaldingWallFunction;
-        value           $internalField;
+        value           uniform 0;
     }
     baffle1
     {
         type            nutUSpaldingWallFunction;
-        value           $internalField;
-    }
-    empty
-    {
-        type            empty;
+        value           uniform 0;
     }
 }
 

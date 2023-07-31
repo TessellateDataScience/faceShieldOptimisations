@@ -20,6 +20,10 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
+    empty
+    {
+        type            empty;
+    }
     mouth
     {
         type            turbulentInlet;
@@ -28,13 +32,13 @@ boundaryField
         alpha           0.1;
         value           uniform (0 0 10);
     }
-    atmos
-    {
-        type            zeroGradient;
-    }
     wall
     {
         type            noSlip;
+    }
+    atmos
+    {
+        type            zeroGradient;
     }
     baffle0
     {
@@ -43,10 +47,6 @@ boundaryField
     baffle1
     {
         type            noSlip;
-    }
-    empty
-    {
-        type            empty;
     }
 }
 

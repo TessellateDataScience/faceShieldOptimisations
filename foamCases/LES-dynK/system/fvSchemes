@@ -26,10 +26,10 @@ gradSchemes
 
 divSchemes
 {
-    default         none;
-    div(phi,U)      Gauss upwind;
-    div(phi,k)      Gauss upwind;
-    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    default                         none;
+    div(phi,U)                      Gauss upwind;
+    div(phi,k)                      Gauss upwind;
+    div((nuEff*dev2(T(grad(U)))))   Gauss linear;
 }
 
 laplacianSchemes

@@ -20,7 +20,15 @@ internalField   uniform 0;
 
 boundaryField
 {
+    empty
+    {
+        type            empty;
+    }
     mouth
+    {
+        type            zeroGradient;
+    }
+    wall
     {
         type            zeroGradient;
     }
@@ -29,10 +37,6 @@ boundaryField
         type            fixedValue;
         value           uniform 0;
     }
-    wall
-    {
-        type            zeroGradient;
-    }
     baffle0
     {
         type            zeroGradient;
@@ -40,10 +44,6 @@ boundaryField
     baffle1
     {
         type            zeroGradient;
-    }
-    empty
-    {
-        type            empty;
     }
 }
 

@@ -33,21 +33,13 @@ baffles
             {
                 k
                 {
-                    type        fixedValue;
+                    type        kqRWallFunction;
                     value       uniform 0;
                 }
                 nut
                 {
-                    type        nutkWallFunction;
-                    Cmu         0.09;
-                    kappa       0.41;
-                    E           9.8;
+                    type        nutUSpaldingWallFunction;
                     value       uniform 0;
-                }
-
-                nuTilda
-                {
-                    type        zeroGradient;
                 }
 
                 p
@@ -57,8 +49,7 @@ baffles
 
                 U
                 {
-                    type        fixedValue;
-                    value       uniform (0 0 0);
+                    type        noSlip;
                 }
             }
         }

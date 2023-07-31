@@ -32,7 +32,7 @@ solvers
         relTol          0;
     }
 
-    "(U|k|nuTilda).*"
+    "(U|k).*"
     {
         solver          smoothSolver;
         smoother        symGaussSeidel;
