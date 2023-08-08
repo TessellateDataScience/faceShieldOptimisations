@@ -1,4 +1,0 @@
-constant/polyMesh/
-*.py
-*.msh
-*.csv
