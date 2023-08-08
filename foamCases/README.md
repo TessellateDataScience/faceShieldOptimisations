@@ -7,7 +7,7 @@ Our cases (simulation configuration files) are developed/testing in OpenFOAM ver
 - Using combination of geo/occ module: results in successful execution but no meshed elements.  
 - Sometimes GMSH complains it's 'too busy', simply reload IPython and try again.
 
-### Mesh
+## Mesh
 Using checkMesh often resulted in excessive 'Aspect Ratio' of some cells that caused the utility to flag errors (and thus crash the solver when executed). This was usually due to triangular grids having poor topology, which could be overcome by changing triangular mesh sizes.
 
 ## OpenFOAM

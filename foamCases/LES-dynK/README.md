@@ -1,6 +1,6 @@
 # README: LES dynK
 ## Summary
-This model (case) is simplified for efficient development/testing via a 2-dimensional flow representation (you can use our geom/mesh file: mesh2dJet_withShield_noHeads.py). But we have included modelling of the 'shield' object in domain via using OpenFoam's baffles creation (see below for implementation code). 
+This model (case) is simplified for efficient development/testing via a 2-dimensional flow representation (you can use our geom/mesh file: mesh2dJet_rotationShield_nose.py). Briefly, we have included modelling of both a 'shield' & person's head objects in domain. This geometry allows a boundary condition to be applied at the person's nose. 
 
 ## Technical details
 Our model is based on a Large Eddy Simulation method where subgrid-sized turbulence is modelled using the 'dynamicKEqn' approach [1] (larger-sized turbulence is resolved by the computation). Note we have access to significantly larger computing performance compared to a standard computer (also known as High-Performance Computing), permitting us more tractable compute times for such compute-heavy LES modelling (as compared to faster RANS modelling).
