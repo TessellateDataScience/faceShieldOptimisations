@@ -8,48 +8,38 @@
 FoamFile
 {
     format      ascii;
-    class       volVectorField;
+    class       volScalarField;
     location    "0";
-    object      U;
+    object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform (0 0 0);
+internalField   uniform 0;
 
 boundaryField
 {
-    empty
-    {
-        type            empty;
-    }
-    atmos
+    shield
     {
         type            zeroGradient;
     }
-    faceShield
-    {
-        type            noSlip;
-    }
-    solid
-    {
-        type            noSlip;
-    }
     mouth
     {
-        type            turbulentInlet;
-        fluctuationScale (0.2 0.01 0.01);
-        referenceField  uniform (10 0 0);
-        alpha           0.1;
-        value           uniform (10 0 0);
+        type            zeroGradient;
     }
-    nose
+    wall
     {
-        type            flowRateOutletVelocity;
-        massFlowRate    0.000325; 
-        rhoOutlet       1.3;
-        rho             rho;
+        type            zeroGradient;
+    }
+    atmos
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    oldInternalFaces
+    {
+        type            internal;
     }
 }
 

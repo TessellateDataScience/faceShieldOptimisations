@@ -1,0 +1,33 @@
+Checking topology...
+    Boundary definition OK.
+    Cell to face addressing OK.
+    Point usage OK.
+    Upper triangular ordering OK.
+    Face vertices OK.
+    Number of regions: 1 (OK).
+
+Checking patch topology for multiply connected surfaces...
+    Patch               Faces    Points   Surface topology
+    shield              1194     599      ok (closed singly connected)
+    mouth               74       48       ok (non-closed singly connected)
+    wall                3444     3022     ok (non-closed singly connected)
+    atmos               9596     9359     ok (non-closed singly connected)
+
+Checking geometry...
+    Overall domain bounding box (-0.6 -0.405 -0.525) (0.6 1.8 0.675)
+    Mesh has 3 geometric (non-empty/wedge) directions (1 1 1)
+    Mesh has 3 solution (non-empty) directions (1 1 1)
+    Boundary openness (-1.35e-15 -2.34e-16 -2.25e-15) OK.
+    Max cell openness = 5.19e-16 OK.
+    Max aspect ratio = 78.8 OK.
+    Minimum face area = 1.12e-06. Maximum face area = 0.00174.  Face area magnitudes OK.
+    Min volume = 2e-09. Max volume = 2.4e-05.  Total volume = 3.17.  Cell volumes OK.
+    Mesh non-orthogonality Max: 81.3 average: 20
+   *Number of severely non-orthogonal (> 70 degrees) faces: 124.
+    Non-orthogonality check OK.
+  <<Writing 124 non-orthogonal faces to set nonOrthoFaces
+    Face pyramids OK.
+    Max skewness = 2.5 OK.
+    Coupled point location match (average 0) OK.
+
+Mesh OK.

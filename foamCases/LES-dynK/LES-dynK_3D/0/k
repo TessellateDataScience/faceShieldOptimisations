@@ -10,31 +10,17 @@ FoamFile
     format      ascii;
     class       volScalarField;
     location    "0";
-    object      nuTilda;
+    object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
 internalField   uniform 0;
 
 boundaryField
 {
-    empty
-    {
-        type            empty;
-    }
-    atmos
-    {
-        type            fixedValue;
-        value           uniform 0.0001;
-    }
-    faceShield
-    {
-        type            fixedValue;
-        value           uniform 0;
-    }
-    solid
+    shield
     {
         type            fixedValue;
         value           uniform 0;
@@ -42,14 +28,22 @@ boundaryField
     mouth
     {
         type            inletOutlet;
-        inletValue      uniform 0.0001;
-        value           uniform 0.0001;
+        inletValue      uniform 0.375;
+        value           uniform 0.375;
     }
-    nose
+    wall
     {
-        type            inletOutlet;
-        inletValue      uniform 0.0001;
-        value           uniform 0.0001;
+        type            fixedValue;
+        value           uniform 0;
+    }
+    atmos
+    {
+        type            fixedValue;
+        value           uniform 0.375;
+    }
+    oldInternalFaces
+    {
+        type            internal;
     }
 }
 
