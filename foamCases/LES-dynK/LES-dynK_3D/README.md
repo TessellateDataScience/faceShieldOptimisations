@@ -1,9 +1,9 @@
-# README: LES dynK 3D
+# README: LES 3D
 ## Summary
 This model (case) is a 3-dimensional flow representation. Briefly, we have included modelling of a 'shield' but no person's head in domain (you can use our geom/mesh file that is also within this repository). We envision this case can be developed upon concentrating upon research of jet flow around a bluff body (i.e. of a more fundamental research nature).
 
 ## Modelling
-Our model is based on a Large Eddy Simulation method where subgrid-sized turbulence is modelled using the 'dynamicKEqn' approach [1] (larger-sized turbulence is resolved by the computation). Note we have access to significantly larger computing performance compared to a standard computer (also known as High-Performance Computing), permitting us more tractable compute times for such compute-heavy LES modelling (as compared to lighter RANS modelling).
+Our model is based on a Large Eddy Simulation method where subgrid-sized turbulence is modelled using the 'dynamicKEqn' approach [1] (larger-sized turbulence is resolved by the computation). Note we have access to more-powerful computing performance compared to a standard computer (also known as High-Performance Computing), permitting us more tractable compute times for such compute-heavy LES modelling (as compared to lighter RANS modelling).
 
 ## Meshing
 You need to create the domain of interest then mesh this domain, before simulating this domain using OpenFOAM. We did this using _Gmsh_, open-source software that has extensive functionality that can be more exploited via it's command-line interface (as compared to it's graphical interface). We used Gmsh's Python interface to interact with Gmsh's core functionality, within the IPython environment.
