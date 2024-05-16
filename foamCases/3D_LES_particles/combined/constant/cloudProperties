@@ -1,0 +1,118 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      cloudProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type                cloud;
+
+solution
+{
+    coupled                     false;
+    transient                   yes;
+    cellValueSourceCorrection   off;
+    maxCo                       0.3;
+
+    interpolationSchemes
+    {
+        rho             cell;
+        U               cellPoint;
+        mu              cell;
+    }
+
+    integrationSchemes
+    {
+        U               Euler;
+    }
+}
+
+constantProperties
+{
+    rho0            1000;
+}
+
+subModels
+{
+    particleForces
+    {
+        sphereDrag;
+        gravity;
+    }
+
+    injectionModels
+    {
+        /*manual
+        {
+            type                    manualInjection;
+            positionsFile           "cloudPositions";
+            nParticle               1;
+            //uniformParcelSize       volume;
+            //massTotal               1e-3;
+            SOI                     0;
+            U0                      (0 -10 0);
+            sizeDistribution        
+            {
+                type            fixedValue;
+                value           0.000005;
+            }
+        }*/
+
+        
+        mouth
+        {
+            type                patchInjection;
+            SOI                 0;              // start of injection
+            duration            10;             // seconds
+            parcelsPerSecond    10000;          // bug: only small fraction injected even with OF-dev: https://github.com/OpenFOAM/OpenFOAM-dev/commit/7fbd730f2aa68da3b8fd973e06de6d5edaa99588
+            patchName           "mouth";
+            U0                  (0 -10 0);
+            //massTotal           1e-3;
+            //uniformParcelSize   volume;
+            nParticle           1;              // testing only
+            //flowRateProfile     constant 1;
+            sizeDistribution                    // 90% of COVID-19 bioparticles are < 5 micrometre: https://www.tandfonline.com/doi/full/10.1080/23744235.2022.2140822
+            {
+                type            fixedValue;
+                value           0.000005;
+            }
+        }
+        
+    }
+
+    // particles' interaction with shield (required to remove solver crashing)
+    patchInteractionModel       localInteraction;
+    localInteractionCoeffs
+    {
+        patches
+        (
+            "(shield)"
+            {
+                type        stick;
+            }
+            "(atmos|wall|mouth|interface|interfaceShield)"
+            {
+                type        escape;
+            }
+        );
+    }
+
+    // turn off other modelling
+    dispersionModel             none;
+    heatTransferModel           none;
+    surfaceFilmModel            none;
+    stochasticCollisionModel    none;
+    collisionModel              none;
+}
+
+
+// ************************************************************************* //

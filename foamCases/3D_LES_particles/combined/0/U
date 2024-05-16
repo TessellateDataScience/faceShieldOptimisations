@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    #includeEtc "caseDicts/setConstraintTypes"
+
+    shield
+    {
+        type            noSlip;
+    }
+    mouth
+    {
+        type            turbulentInlet;
+        fluctuationScale (0.2 0.2 0.01);   // fraction of mean (RMS): side, stream, up/down
+        referenceField  uniform (0 -10 0);  // mean values
+        //alpha           0.1;              // optional: fraction of new random component added to previous (default: 0.1)
+    }
+    wall
+    {
+        type            noSlip;
+    }
+    atmos
+    {
+        type            zeroGradient;
+    }
+    oldInternalFaces
+    {
+        type            internal;
+    }
+    interface
+    {
+        type            slip;
+    }
+    interfaceShield
+    {
+        type            slip;
+    }
+}
+
+
+// ************************************************************************* //
