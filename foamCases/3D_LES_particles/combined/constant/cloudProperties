@@ -72,8 +72,8 @@ subModels
         {
             type                patchInjection;
             SOI                 0;              // start of injection
-            duration            10;             // seconds
-            parcelsPerSecond    10000;          // bug: only small fraction injected even with OF-dev: https://github.com/OpenFOAM/OpenFOAM-dev/commit/7fbd730f2aa68da3b8fd973e06de6d5edaa99588
+            duration            10;             // injection duration
+            parcelsPerSecond    10000;          // no. injetion locations
             patchName           "mouth";
             U0                  (0 -10 0);
             //massTotal           1e-3;
