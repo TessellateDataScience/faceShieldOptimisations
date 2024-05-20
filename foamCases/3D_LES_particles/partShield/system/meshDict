@@ -19,12 +19,11 @@ FoamFile
 
 // Guidance: https://www.cfd-online.com/Forums/openfoam-community-contributions/198872-general-workflow-create-flawless-mesh-cfmesh.html
 
-surfaceFile         "combined.fms";
+surfaceFile         "combined.stl";
 
 // global values for cartesianMesh
-maxCellSize	       17.697; // good paramaters: 17.697 > 17.295 (but not values between)
-//boundaryCellSize    6.0; // similar quality to region refinement (when used instead)
-//minCellSize           6.0;
+maxCellSize	       17.5; // required
+//minCellSize       6.0;
 
 // region (local) refinement
 objectRefinements
@@ -32,21 +31,11 @@ objectRefinements
     headRefine
     {
         type        box;
-        cellSize    6.0; // Mesh OK: [4.5:8.5] (significant no. bad cells outside range)
+        cellSize    9.0;
         centre      (0 0 0);
         lengthX     200;
         lengthY     250;
         lengthZ     300;
-    }
-
-    noseRefine
-    {
-        type        box;
-        cellSize    1.0; 
-        centre      (0 69 30);
-        lengthX     42; // vary lengths to achieve mesh 'convergence'
-        lengthY     42;
-        lengthZ     42;
     }
 }
 
