@@ -1,7 +1,7 @@
 # Complex geometry meshing using _cfMesh_: combination of cell types: poly, tet, and hex.
-_Published: 2024 May
-Nick Howlett, M. Eng. Science (Research)
-Founder | Tessellate Computate, Australia._
+_Published: 2024 May  
+Nick Howlett, M. Eng. Science (Research)  
+Founder | Tessellate Computate, Australia._  
 
 > _**Who owns the mesh, owns the solution.**_ - Dr Hrvoje Jasak, Founder of OpenFOAM.
 
@@ -48,8 +48,8 @@ OpenFOAM's `checkMesh` utility allows you to assess the mesh quality:
 	- beyond a range of acceptable values, the number of 'bad' cells increased very significantly (we assume qualitative changes in the mesh topology are the cause).
 
 ## Footnotes
-[0] For more details of cfMesh please consult [cfMesh's official user guide](https://cfmesh.com/wp-content/uploads/2015/09/User_Guide-cfMesh_v1.1.pdf).
-[1] Meshing the FMS file caused the cfMesh's algorithm to have a harder time enforcing these constraints, resulting in poorer _checkMesh_ results. 
-[2] [Advanced meshing using OpenFOAM technology cfMesh: Mesh quality assessment in CFD: Checking mesh quality in OpenFOAM](www.wolfdynamics.com/training/CFMESH/cfmesh2017.pdf)
-[3] [CFD Online: Running high non orthogonality mesh: Thanks to Kuzey Can Derman]( https://www.cfd-online.com/Forums/openfoam-solving/249271-running-high-non-orthogonality-mesh.html)
-[4] cfMesh's _cartesianMesh_ is hexahedra dominant, but will also introduce tetrahedra & polyhedra cells as required. 
+[0] For more details of cfMesh please consult [cfMesh's official user guide](https://cfmesh.com/wp-content/uploads/2015/09/User_Guide-cfMesh_v1.1.pdf).  
+[1] Meshing the FMS file caused the cfMesh's algorithm to have a harder time enforcing these constraints, resulting in poorer _checkMesh_ results.  
+[2] [Advanced meshing using OpenFOAM technology cfMesh: Mesh quality assessment in CFD: Checking mesh quality in OpenFOAM](www.wolfdynamics.com/training/CFMESH/cfmesh2017.pdf)  
+[3] [CFD Online: Running high non orthogonality mesh: Thanks to Kuzey Can Derman]( https://www.cfd-online.com/Forums/openfoam-solving/249271-running-high-non-orthogonality-mesh.html)  
+[4] cfMesh's _cartesianMesh_ is hexahedra dominant, but will also introduce tetrahedra & polyhedra cells as required.  
