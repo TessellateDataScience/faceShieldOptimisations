@@ -14,8 +14,15 @@ This OpenFOAM-integrated module allows meshing using polyhedra elements (in addi
 ## OpenFOAM
 Our case files are suitable for _OpenFOAM-11_ and OpenFOAM-dev (build): dev-fb4d7abf4217 (www.openfoam.org/download/dev-ubuntu). This case includes files allowing 'particle tracking' that could represent airborne viruses (bio-aerosols). Unlike the 2D case, here particle's trajectories are calculated concurrently alongside the flow. Due to technical limitations, OpenFOAM-dev is preferred to allow more control of the introduction of these particles. The same turbulence modelling is used here as in our 2D OpenFOAM simulations.
 
-## Computations
+### Computations
 We utilised a moderately-powerful hardware platform consisting of 20 Xeon-based processors. The Ubuntu 22 LTS (Server) operating system was installed before installing OpenFOAM. Using all processors on a single case (i.e. 'domain decomposition') resulted in simulating the flow for ~ 15 [secs] using 4 [hours] computing (real) time, using the provided meshing parameters.
 
-### Footnotes
+### Issues
+Our OpenFOAM cases include a custom-coded boundary condition to represent the airflow out of the mouth. Strangely, although velocity components are implemented to represent an expanding cone-like flow, particle trajectories appear almost as a flat sheet (see image below).
+
+<p align="center">
+  <img src="./flow-horizontal.png" width="600" height="250"/>
+</p>
+
+## Footnotes
 _Software_ that needs installation. Software is generally 'open-source' thus free-of-charge to use and explore.
