@@ -9,3 +9,4 @@
 #rm -rf ./constant/polyMesh  
 gmshToFoam mesh3d_nonConform_shieldBox.msh 
 checkMesh
+transformPoints scale="(0.001 0.001 0.001)"

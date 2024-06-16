@@ -22,11 +22,19 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    shield
+    person
     {
         type            zeroGradient;
     }
     mouth
+    {
+        type            zeroGradient;
+    }
+    fan
+    {
+        type            zeroGradient;
+    }
+    nostrils
     {
         type            zeroGradient;
     }

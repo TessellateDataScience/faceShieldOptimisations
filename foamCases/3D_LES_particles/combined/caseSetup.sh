@@ -11,7 +11,8 @@ mergeMeshes ./partOther ./partShield
 rm -r ./combined/constant/polyMesh
 cp -r ./partOther/1e-06/polyMesh/ ./combined/constant/
 cd ./combined
-transformPoints scale="(0.001 0.001 0.001)"
+
+# Deactivate OpenFOAM v2312: 'exit'
 
 # https://cfd.direct/openfoam/free-software/using-non-conformal-coupling/
 createNonConformalCouples -overwrite interface interfaceShield

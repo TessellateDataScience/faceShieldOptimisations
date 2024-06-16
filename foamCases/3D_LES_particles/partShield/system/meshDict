@@ -21,29 +21,32 @@ FoamFile
 
 surfaceFile         "combined.stl";
 
-// global values for cartesianMesh
-maxCellSize	       17.5; // required
-//minCellSize       6.0;
+// global mesh size
+maxCellSize	       15.04;           // perturb the mesh by ~ 0.001-0.01 increments
 
-// region (local) refinement
+// region (local) mesh refinement
 objectRefinements
 {  
     headRefine
     {
         type        box;
-        cellSize    9.0;
+        cellSize    6.0;
         centre      (0 0 0);
         lengthX     200;
         lengthY     250;
         lengthZ     300;
     }
+
+    nostrilRefine
+    {
+        type        box;
+        cellSize    3.0;            // nostrils' geometry resolution is stepwise
+        centre      (0 100 20);
+        lengthX     15;
+        lengthY     15;
+        lengthZ     15;
+    }
 }
-
-/*boundaryLayers
-{
-    nLayers     1;
-
-}*/
 
 workflowControls
 {

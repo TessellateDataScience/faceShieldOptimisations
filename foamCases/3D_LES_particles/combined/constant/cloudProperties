@@ -18,10 +18,10 @@ type                cloud;
 
 solution
 {
+    maxCo                       0.3;
     coupled                     false;
     transient                   yes;
     cellValueSourceCorrection   off;
-    maxCo                       0.3;
 
     interpolationSchemes
     {
@@ -51,23 +51,6 @@ subModels
 
     injectionModels
     {
-        /*manual
-        {
-            type                    manualInjection;
-            positionsFile           "cloudPositions";
-            nParticle               1;
-            //uniformParcelSize       volume;
-            //massTotal               1e-3;
-            SOI                     0;
-            U0                      (0 -10 0);
-            sizeDistribution        
-            {
-                type            fixedValue;
-                value           0.000005;
-            }
-        }*/
-
-        
         mouth
         {
             type                patchInjection;
@@ -75,7 +58,7 @@ subModels
             duration            10;             // injection duration
             parcelsPerSecond    10000;          // no. injetion locations
             patchName           "mouth";
-            U0                  (0 -10 0);
+            U0                  (0 0 0);
             //massTotal           1e-3;
             //uniformParcelSize   volume;
             nParticle           1;              // testing only
@@ -86,7 +69,6 @@ subModels
                 value           0.000005;
             }
         }
-        
     }
 
     // particles' interaction with shield (required to remove solver crashing)
@@ -95,11 +77,11 @@ subModels
     {
         patches
         (
-            "(shield)"
+            "(person|nostrils)"
             {
                 type        stick;
             }
-            "(atmos|wall|mouth|interface|interfaceShield)"
+            "(atmos|wall|mouth|interface|interfaceShield|fan)"
             {
                 type        escape;
             }

@@ -22,12 +22,24 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    shield
+    person
     {
         type            fixedValue;
         value           uniform 0;
     }
     mouth
+    {
+        type            inletOutlet;
+        inletValue      uniform 0.375;
+        value           uniform 0.375;
+    }
+    fan
+    {
+        type            fixedValue;
+        inletValue      uniform 0.375;
+        value           uniform 0.375;
+    }
+    nostrils
     {
         type            inletOutlet;
         inletValue      uniform 0.375;

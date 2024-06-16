@@ -22,16 +22,87 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    shield
+    mouth
+    {
+        /**
+         * Thanks to Joel Guerrero for guidance on custom boundary condition: 
+         *  - https://wiki.openfoam.com/Programming1
+         * Part of the 'OpenFOAM in 15 days': 
+         *  - https://wiki.openfoam.com/index.php?title=%223_weeks%22_series
+         */
+        type            codedFixedValue;            // custom-coded BC
+        value           uniform (0 0 0);
+        name            myCustomBC;
+
+        codeOptions                                 // compilation options
+        #{
+            -I$(LIB_SRC)/finiteVolume/lnInclude \
+            -I$(LIB_SRC)/meshTools/lnInclude
+        #};
+
+        codeInclude                                 // required files
+        #{
+            #include <cmath>
+            #include <iostream>
+        #};
+
+        code                                        // executes every time-step (deltaT)
+        #{
+            const vectorField& Cf = patch().Cf();   // get all coordinates of the face's center in a patch
+            vectorField& field = *this;             // initialize where we are going to assign the profile
+
+            forAll(Cf, faceI)                       // loop over faces in patch
+            {
+                /**
+                 * Following article reviews experimental studies on
+                 * mouth-exhaled airflow, comparing the measured parameters
+                 * in addition to discussing techniques: 
+                 *  - https://www.semanticscholar.org/paper/A-review-on-the-applied-techniques-of-exhaled-and-Merghani-Sagot/b231f36f142985051d07b105d86fcd75d44640bc
+                 */
+
+                const scalar Uy = -4;               // frontward velocity magnitude
+                const scalar spreadMag = 200;       // tune to match experimental 'spread angle' values
+    
+                /**
+                 * Strange: particles don't spread in both lateral directions, 
+                 * simultaneously, although flow direction is assigned in both 
+                 * directions. 
+                 *
+                const scalar x_i = Cf[faceI].x();
+                const scalar Ux = spreadMag * x_i; */
+                const scalar Ux = 0;
+
+                const scalar z_i = Cf[faceI].z();
+                const scalar Uz = spreadMag * z_i;
+
+                field[faceI] = vector(Ux, Uy, Uz);
+            }
+        #};
+    }
+    nostrils                                 
+    {
+        /**
+         * Breathing measurements: 
+         *  - https://engineering.purdue.edu/~yanchen/paper/2010-5.pdf
+         *  - https://pubs.aip.org/aip/pof/article/35/5/051902/2888987/Enhancing-respiratory-comfort-with-fan-respirators
+         */
+
+        type                uniformFixedValue;  
+        uniformValue
+        {
+            type             sine;
+            frequency        1;            // single sine revolution over 2*Pi (~ 6.3) [t]
+            amplitude        (0 0 10);     // Conservative: magnitude is 2 * calculated velocity value
+            level            (0 0 0);      // Offset
+        }
+    }
+    person
     {
         type            noSlip;
     }
-    mouth
+    fan
     {
-        type            turbulentInlet;
-        fluctuationScale (0.2 0.2 0.01);   // fraction of mean (RMS): side, stream, up/down
-        referenceField  uniform (0 -10 0);  // mean values
-        //alpha           0.1;              // optional: fraction of new random component added to previous (default: 0.1)
+        type            noSlip;
     }
     wall
     {

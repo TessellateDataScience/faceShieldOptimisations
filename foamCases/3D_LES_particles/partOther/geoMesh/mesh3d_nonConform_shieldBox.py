@@ -25,25 +25,25 @@ geoMod = gmsh.model.geo
 
 
 # MODIFY: major parameters [mm]
-meshSizeMouth 			= 10.0   	# tets' size within mouth
+meshSizeMouth 			= 5.0   	# tets' size within mouth
 meshSize                = 17.5 		# tets' size surrounding shield
 meshCircleEdge 			= 17 		# mesh density (number) on circle region's circumference
-meshMouthPerp 			= 12 		# mesh density perpendicular to mouth's circumference
+meshMouthPerp 			= 9 		# mesh density perpendicular to mouth's circumference
 meshOuterPerp 			= 12 		# mesh density (perpendicular) of outer blocks 
 
 shieldWidth             = 300   	# *linear* distance from shield's ends (near ears)
 shieldHeight            = 140
-mouthToShield           = 1500
+mouthToShield           = 1000
 mouthZ                  = 75
 
 
 # Mouth lines
 Y = 300
-centre = geoMod.addPoint(0, Y, meshSizeMouth)
-xPlus = geoMod.addPoint(40, Y, meshSizeMouth)
-zPlus = geoMod.addPoint(0, Y, 20, meshSizeMouth)
-xMinus = geoMod.addPoint(-40, Y, meshSizeMouth)
-zMinus = geoMod.addPoint(0, Y, -20, meshSizeMouth)
+centre = geoMod.addPoint(0, Y, 0, meshSizeMouth)
+xPlus = geoMod.addPoint(20, Y, 0, meshSizeMouth)
+zPlus = geoMod.addPoint(0, Y, 10, meshSizeMouth)
+xMinus = geoMod.addPoint(-20, Y, 0, meshSizeMouth)
+zMinus = geoMod.addPoint(0, Y, -10, meshSizeMouth)
 geoMod.synchronize()
 
 majorAxis = 2 # y-axis
@@ -55,10 +55,10 @@ geoMod.synchronize()
 
 
 # Circle around mouth lines
-circleP1 = geoMod.addPoint(100, Y, 100, meshSize)
-circleP2 = geoMod.addPoint(-100, Y, 100, meshSize)
-circleP3 = geoMod.addPoint(-100, Y, -100, meshSize)
-circleP4 = geoMod.addPoint(100, Y, -100, meshSize)
+circleP1 = geoMod.addPoint(80, Y, 80, meshSize)
+circleP2 = geoMod.addPoint(-80, Y, 80, meshSize)
+circleP3 = geoMod.addPoint(-80, Y, -80, meshSize)
+circleP4 = geoMod.addPoint(80, Y, -80, meshSize)
 geoMod.synchronize()
 
 lineCircle1 = geoMod.addCircleArc(circleP1, centre, circleP2, 301)
@@ -178,10 +178,11 @@ geoMod.mesh.setTransfiniteCurve(lineRectOut2, meshCircleEdge - 1)
 geoMod.mesh.setTransfiniteCurve(lineRectOut3, meshCircleEdge - 1)
 geoMod.mesh.setTransfiniteCurve(lineRectOut4, meshCircleEdge - 2)
 
-geoMod.mesh.setTransfiniteCurve(lineBlockOut1, meshOuterPerp)
-geoMod.mesh.setTransfiniteCurve(lineBlockOut2, meshOuterPerp)
-geoMod.mesh.setTransfiniteCurve(lineBlockOut3, meshOuterPerp)
-geoMod.mesh.setTransfiniteCurve(lineBlockOut4, meshOuterPerp)
+expansion2 = 1.1
+geoMod.mesh.setTransfiniteCurve(lineBlockOut1, meshOuterPerp, "Progression", expansion2)
+geoMod.mesh.setTransfiniteCurve(lineBlockOut2, meshOuterPerp, "Progression", expansion2)
+geoMod.mesh.setTransfiniteCurve(lineBlockOut3, meshOuterPerp, "Progression", expansion2)
+geoMod.mesh.setTransfiniteCurve(lineBlockOut4, meshOuterPerp, "Progression", expansion2)
 
 geoMod.mesh.setTransfiniteSurface(blockOutSurf1, "Left")
 geoMod.mesh.setTransfiniteSurface(blockOutSurf2, "Left")
@@ -200,13 +201,13 @@ surfsExtAll = gmsh.model.getEntities(2)
 surfsExtOut = surfsExtAll[-4:]
 
 ## mesh density: mouth to shield (approximately)
-N = int(1500 / meshSize)
+N = int(mouthToShield / meshSize)
 
 ## mesh density: behind shield (approximately)
 N2 = int(700 / meshSize)
 
 ext1 = geoMod.extrude(surfsExtAll, 
-					  0, 1500, 0,
+					  0, mouthToShield, 0,
  					  numElements = [1] * N, 
 					  #heights = h_norm,
  					  recombine = True)

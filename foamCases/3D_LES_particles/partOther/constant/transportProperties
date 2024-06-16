@@ -9,40 +9,13 @@ FoamFile
 {
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      fvSolution;
+    location    "constant";
+    object      transportProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-solvers
-{
-    p
-    {
-        solver          GAMG;
-        smoother        GaussSeidel;
-        tolerance       0.1;
+transportModel  Newtonian;
 
-    }
-
-    pFinal
-    {
-        $p;
-        smoother        DICGaussSeidel;
-        tolerance       1e-4;
-    }
-
-    "(U|k|nuTilda).*"
-    {
-        solver          smoothSolver;
-        smoother        symGaussSeidel;
-        tolerance       1e-4;
-    }
-}
-
-PIMPLE
-{
-    nNonOrthogonalCorrectors    1; // non-orthogonal (~ 80 degrees) cells = 2+
-    nCorrectors                 1;
-}
+nu              [0 2 -1 0 0 0 0] 1e-05;
 
 // ************************************************************************* //
