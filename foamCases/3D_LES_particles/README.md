@@ -21,7 +21,7 @@ We utilised a moderately-powerful hardware platform consisting of 20 Xeon-based 
 Our OpenFOAM cases include a custom-coded boundary condition to represent the airflow out of the mouth. Strangely, although velocity components are implemented to represent an expanding cone-like flow, particle trajectories appear almost as a flat sheet (see image below).
 
 <p align="center">
-  <img src="./flow-horizontal.png" width="600" height="250"/>
+  <img src="./flow-sheet.png" width="600" height="250"/>
 </p>
 
 ## Footnotes
