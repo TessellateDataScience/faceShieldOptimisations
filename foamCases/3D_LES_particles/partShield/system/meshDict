@@ -19,10 +19,15 @@ FoamFile
 
 // Guidance: https://www.cfd-online.com/Forums/openfoam-community-contributions/198872-general-workflow-create-flawless-mesh-cfmesh.html
 
-surfaceFile         "combined.stl";
+surfaceFile         "combined.ftr";
 
 // global mesh size
-maxCellSize	       15.04;           // perturb the mesh by ~ 0.001-0.01 increments
+maxCellSize	       15.06;           // perturb the mesh by ~ 0.001-0.01 increments
+
+workflowControls
+{
+    //stopAfter         edgeExtraction;
+}
 
 // region (local) mesh refinement
 objectRefinements
@@ -40,17 +45,12 @@ objectRefinements
     nostrilRefine
     {
         type        box;
-        cellSize    3.0;            // nostrils' geometry resolution is stepwise
+        cellSize    1.0;            // geometry resolution still stepwise when 'feature edging'?
         centre      (0 100 20);
         lengthX     15;
         lengthY     15;
         lengthZ     15;
     }
-}
-
-workflowControls
-{
-    //stopAfter         edgeExtraction;
 }
 
 renameBoundary

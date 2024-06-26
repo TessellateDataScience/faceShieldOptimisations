@@ -33,18 +33,18 @@ translate([0,0,60])
             sphere(r=100);
 
         // nose
-        translate([0,95,-39])
+        translate([0,95,-35])
             rotate(a=[10,0,0])
                 cylinder(h=45, r1=14, r2=5);
         
         // nostrils
         translate([6,100,-40])
-            rotate(a=[0,0,40])
+            rotate(a=[10,-10,40])
                 linear_extrude(height=5)
                     resize([5, 10])
                         circle(d=10);
         translate([-6,100,-40])
-            rotate(a=[0,0,-40])
+            rotate(a=[10,10,-40])
                 linear_extrude(height=5)
                     resize([5, 10])
                         circle(d=10); 
@@ -61,9 +61,9 @@ translate([0,0,60])
             cube([350,170,75]);
         
         // fan
-        translate([0,80,-200])
-            linear_extrude(height=40)
-                circle(d=40);
-        translate([-10,-20,-190])
-            cube([20,100,20]);
+        //translate([0,80,-200])
+        //    linear_extrude(height=40)
+        //        circle(d=40);
+        //translate([-10,-20,-190])
+        //    cube([20,100,20]);
     }
