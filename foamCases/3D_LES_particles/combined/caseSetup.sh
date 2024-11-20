@@ -1,20 +1,18 @@
 #! /bin/bash
 
-# Activate OpenFOAM v2312: 'openfoam2312'
+cd ../partPerson
+bash caseSetup.sh
 
-# Combine meshes to make full domain
-rm -r ./partOther/1e-06/
-mergeMeshes ./partOther ./partShield
+cd ../partDownstrComb
+bash caseSetup.sh 
 
-# Deactivate OpenFOAM v2312: 'exit'
-
-rm -r ./combined/constant/polyMesh
-cp -r ./partOther/1e-06/polyMesh/ ./combined/constant/
-cd ./combined
-
-# Deactivate OpenFOAM v2312: 'exit'
+cd ../combined
+rm -r ./constant/polyMesh/
+rm -r ./constant/fvMesh/
+cp -r ../partUpstr/constant/polyMesh/ ./constant/
+mergeMeshes -overwrite -addCases '("../partDownstrComb")'
 
 # https://cfd.direct/openfoam/free-software/using-non-conformal-coupling/
-createNonConformalCouples -overwrite interface interfaceShield
+createNonConformalCouples -overwrite iFaceUpstr iFaceDownstream
 
-foamRun
+#foamRun

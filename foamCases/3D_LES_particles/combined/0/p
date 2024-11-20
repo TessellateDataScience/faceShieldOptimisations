@@ -22,15 +22,11 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    person
-    {
-        type            zeroGradient;
-    }
     mouth
     {
         type            zeroGradient;
     }
-    fan
+    person
     {
         type            zeroGradient;
     }
@@ -44,18 +40,26 @@ boundaryField
     }
     atmos
     {
+        type            zeroGradient;
+    }
+    atmosEnd
+    {
         type            fixedValue;
         value           uniform 0;
     }
-    oldInternalFaces
-    {
-        type            internal;
-    }
-    interface
+    iFaceDownstream
     {
         type            zeroGradient;
     }
-    interfaceShield
+    iFaceUpstr
+    {
+        type            zeroGradient;
+    }
+    iFaceDownCube
+    {
+        type            zeroGradient;
+    }
+    iFaceCube
     {
         type            zeroGradient;
     }

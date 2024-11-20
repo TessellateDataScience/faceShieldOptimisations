@@ -22,28 +22,20 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
+    mouth
+    {
+        type            fixedValue;
+        value           uniform 0.375;
+    }
     person
     {
         type            fixedValue;
         value           uniform 0;
     }
-    mouth
-    {
-        type            inletOutlet;
-        inletValue      uniform 0.375;
-        value           uniform 0.375;
-    }
-    fan
-    {
-        type            fixedValue;
-        inletValue      uniform 0.375;
-        value           uniform 0.375;
-    }
     nostrils
     {
-        type            inletOutlet;
-        inletValue      uniform 0.375;
-        value           uniform 0.375;
+        type            fixedValue;
+        value           uniform 0;
     }
     wall
     {
@@ -53,17 +45,26 @@ boundaryField
     atmos
     {
         type            fixedValue;
-        value           uniform 0.375;
+        value           uniform 0;
     }
-    oldInternalFaces
+    atmosEnd
     {
-        type            internal;
+        type            fixedValue;
+        value           uniform 0;
     }
-    interface
+    iFaceDownstream
     {
         type            zeroGradient;
     }
-    interfaceShield
+    iFaceUpstr
+    {
+        type            zeroGradient;
+    }
+    iFaceDownCube
+    {
+        type            zeroGradient;
+    }
+    iFaceCube
     {
         type            zeroGradient;
     }

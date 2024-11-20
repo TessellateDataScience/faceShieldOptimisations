@@ -55,8 +55,8 @@ subModels
         {
             type                patchInjection;
             SOI                 0;              // start of injection
-            duration            10;             // injection duration
-            parcelsPerSecond    10000;          // no. injetion locations
+            duration            120;             // injection duration
+            parcelsPerSecond    2500;           // no. injetion locations
             patchName           "mouth";
             U0                  (0 0 0);
             //massTotal           1e-3;
@@ -77,11 +77,11 @@ subModels
     {
         patches
         (
-            "(person|nostrils)"
+            "(person|nostrils|atmosEnd)"
             {
                 type        stick;
             }
-            "(atmos|wall|mouth|interface|interfaceShield|fan)"
+            "(atmos|wall|mouth|iFaceDownstream|iFaceUpstr|iFaceDownCube|iFaceCube)"
             {
                 type        escape;
             }
