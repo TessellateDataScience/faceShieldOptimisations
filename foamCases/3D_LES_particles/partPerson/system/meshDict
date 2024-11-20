@@ -1,0 +1,71 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                |
+| \\      /  F ield         | cfMesh: A library for mesh generation          | 
+|  \\    /   O peration     |                                                |
+|   \\  /    A nd           | Author: Franjo Juretic                         | 
+|    \\/     M anipulation  | E-mail: franjo.juretic@c-fields.com            |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version   2.0;
+    format    ascii;
+    class     dictionary;
+    location  "system";
+    object    meshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Guidance: https://www.cfd-online.com/Forums/openfoam-community-contributions/198872-general-workflow-create-flawless-mesh-cfmesh.html
+
+surfaceFile         "combined.stl";
+
+// global mesh size
+maxCellSize	       15.00;           // perturb the mesh ~ 0.001-0.01 increments
+
+// region (local) mesh refinement: stepwise even for differing input values
+objectRefinements
+{  
+    headRefine
+    {
+        type        box;
+        cellSize    6.0;
+        centre      (0 0 0);
+        lengthX     200;
+        lengthY     250;
+        lengthZ     300;
+    }
+
+    nostrilRefine
+    {
+        type        box;
+        cellSize    2.0;            
+        centre      (0 -100 20);
+        lengthX     15;
+        lengthY     15;
+        lengthZ     15;
+    }
+}
+
+workflowControls
+{
+    //stopAfter         edgeExtraction;
+}
+
+renameBoundary
+{
+    defaultType     wall;
+
+    newPatchNames
+    {
+        "top"       { newName iFaceCube  ; type  patch; }
+        "bottom"    { newName iFaceCube  ; type  patch; }
+        "sideL"     { newName iFaceCube  ; type  patch; }
+        "sideR"     { newName iFaceCube  ; type  patch; }
+        "front"     { newName iFaceCube  ; type  patch; }
+        "back"      { newName iFaceCube  ; type  patch; }
+    }
+}
+
+// ************************************************************************* //

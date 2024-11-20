@@ -1,0 +1,39 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      createNonConformalCouplesDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+iFaceCubeRotated
+{
+    patches         ();
+    transform       ;
+}
+
+nonConformalCoupleIn0
+{
+    patches         (nonCoupleIn1 nonCoupleIn2);
+    transform       none;
+}
+nonConformalCoupleIn30
+{
+    $nonConformalCoupleIn0;
+    transform       rotational;
+    rotationAxis    (-1 0 0);
+    rotationCentre  (0 0 0);
+    rotationAngle   30;
+}
+nonConformalCoupleIn60 { $nonConformalCoupleIn30; rotationAngle 60; }
+
+
+// ************************************************************************* //

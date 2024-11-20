@@ -22,17 +22,17 @@ startFrom       latestTime;
 
 stopAt          endTime;
 
-endTime         7.5;
+deltaT 0.0002;
 
-writeInterval   0.5;
+endTime 0.051;
+
+writeInterval 0.01;
 
 adjustTimeStep  yes;
 
-maxCo           10;
+//maxCo           0.5;
 
-maxDeltaT       0.01;
-
-deltaT          0.0001;
+//maxDeltaT       0.01;
 
 writeControl    adjustableRunTime;
 
@@ -50,10 +50,12 @@ timePrecision   3;
 
 runTimeModifiable yes;
 
+libs ("/home/nchowlett/OpenFOAM/mouthInletVel.so");
+
 functions
 {
-
-    #includeFunc  probes
+    // enable run-time data monitoring
+    //#includeFunc  probes
 
     /*clouds
     {

@@ -1,0 +1,166 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+18
+(
+    iFaceUpstr
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          1260;
+        startFace       1278454;
+    }
+    mouth
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          100;
+        startFace       1279714;
+    }
+    wall
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          2760;
+        startFace       1279814;
+    }
+    atmos
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          9184;
+        startFace       1282574;
+    }
+    atmosEnd
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          1400;
+        startFace       1291758;
+    }
+    iFaceDownstream
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          1400;
+        startFace       1293158;
+    }
+    iFaceDownCube
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          7362;
+        startFace       1294558;
+    }
+    iFaceCube
+    {
+        type            patch;
+        nFaces          6944;
+        startFace       1301920;
+    }
+    person
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          33243;
+        startFace       1308864;
+    }
+    nostrils
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          57;
+        startFace       1342107;
+    }
+    nonConformalCyclic_on_iFaceCube
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1342164;
+        matchTolerance  0.0001;
+        neighbourPatch  nonConformalCyclic_on_iFaceDownCube;
+        transformType   none;
+        originalPatch   iFaceCube;
+    }
+    nonConformalCyclic_on_iFaceDownCube
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1342164;
+        matchTolerance  0.0001;
+        neighbourPatch  nonConformalCyclic_on_iFaceCube;
+        transformType   none;
+        originalPatch   iFaceDownCube;
+    }
+    nonConformalError_on_iFaceCube
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1342164;
+        originalPatch   iFaceCube;
+    }
+    nonConformalError_on_iFaceDownCube
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1342164;
+        originalPatch   iFaceDownCube;
+    }
+    nonConformalCyclic_on_iFaceUpstr
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1342164;
+        matchTolerance  0.0001;
+        neighbourPatch  nonConformalCyclic_on_iFaceDownstream;
+        transformType   none;
+        originalPatch   iFaceUpstr;
+    }
+    nonConformalCyclic_on_iFaceDownstream
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1342164;
+        matchTolerance  0.0001;
+        neighbourPatch  nonConformalCyclic_on_iFaceUpstr;
+        transformType   none;
+        originalPatch   iFaceDownstream;
+    }
+    nonConformalError_on_iFaceUpstr
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1342164;
+        originalPatch   iFaceUpstr;
+    }
+    nonConformalError_on_iFaceDownstream
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1342164;
+        originalPatch   iFaceDownstream;
+    }
+)
+
+// ************************************************************************* //

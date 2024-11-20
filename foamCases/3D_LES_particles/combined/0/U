@@ -22,17 +22,31 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    mouth
+    /* meanAxialVelocity value used is conservative approximation of real
+     * measurements: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8663001
+     * fluctuationScale was determined by varying value then visually 
+     * inspecting aerosol's cloud outline to find best shape agreement with 
+     * real images. See our custom boundary condition code for more details 
+     * of these parameters.
+     */
+    mouth                     
     {
-        /**
-         * Thanks to Joel Guerrero for guidance on custom boundary condition: 
-         *  - https://wiki.openfoam.com/Programming1
-         * Part of the 'OpenFOAM in 15 days': 
-         *  - https://wiki.openfoam.com/index.php?title=%223_weeks%22_series
-         */
+        type                    mouthInletVel;
+        meanAxialVelocity       0.5;
+        fluctuationScale        1.25;
+        diffRandVelAcrossCases  0;                  // 1 = yes, 0 = no
+
+    }
+
+    /* Values used approximated from measurements: 
+     * https://onlinelibrary.wiley.com/doi/10.1111/j.1600-0668.2009.00623.x
+     * Breathing rate (velocity) thru nostrils approximated as sine function.
+     */
+    nostrils                                 
+    {
         type            codedFixedValue;            // custom-coded BC
-        value           uniform (0 0 0);
-        name            myCustomBC;
+        value           uniform (0 0 0);            // initialization (for ParaView only)
+        name            customNostrilBC;
 
         codeOptions                                 // compilation options
         #{
@@ -44,63 +58,45 @@ boundaryField
         #{
             #include <cmath>
             #include <iostream>
+            #include "mathematicalConstants.H"
         #};
 
         code                                        // executes every time-step (deltaT)
         #{
-            const vectorField& Cf = patch().Cf();   // get all coordinates of the face's center in a patch
+            const scalar angle = 40;                // from vertical (not theta)
+            const scalar velAmp = 5.0; 
+
+            // required
+            const scalar Pi = 3.14;
+            const scalar angleRad = angle * Pi / 180;
+            const vectorField& Cf = patch().Cf();   // coordinates of the face's center in a patch
             vectorField& field = *this;             // initialize where we are going to assign the profile
+            scalar t = this->db().time().value();   // current time
+
+            // velocity components
+            scalar velMag       = velAmp * sin(t);
+            scalar velDown      = velMag * cos(angleRad);
+            scalar velForward   = -velMag * sin(angleRad);
+            scalar velSideways;
 
             forAll(Cf, faceI)                       // loop over faces in patch
             {
-                /**
-                 * Following article reviews experimental studies on
-                 * mouth-exhaled airflow, comparing the measured parameters
-                 * in addition to discussing techniques: 
-                 *  - https://www.semanticscholar.org/paper/A-review-on-the-applied-techniques-of-exhaled-and-Merghani-Sagot/b231f36f142985051d07b105d86fcd75d44640bc
-                 */
+                scalar sideways_i = Cf[faceI].x();
+                if (sideways_i < 0)                 // each nostril's sideways velocity direction
+                {
+                    velSideways = -velForward;
+                } 
+                else 
+                {
+                    velSideways = velForward;
+                } 
 
-                const scalar Uy = -4;               // frontward velocity magnitude
-                const scalar spreadMag = 200;       // tune to match experimental 'spread angle' values
-    
-                /**
-                 * Strange: particles don't spread in both lateral directions, 
-                 * simultaneously, although flow direction is assigned in both 
-                 * directions. 
-                 *
-                const scalar x_i = Cf[faceI].x();
-                const scalar Ux = spreadMag * x_i; */
-                const scalar Ux = 0;
-
-                const scalar z_i = Cf[faceI].z();
-                const scalar Uz = spreadMag * z_i;
-
-                field[faceI] = vector(Ux, Uy, Uz);
+                // assign velocity components at nostrils surface
+                field[faceI] = vector(velSideways, velForward, velDown);
             }
         #};
     }
-    nostrils                                 
-    {
-        /**
-         * Breathing measurements: 
-         *  - https://engineering.purdue.edu/~yanchen/paper/2010-5.pdf
-         *  - https://pubs.aip.org/aip/pof/article/35/5/051902/2888987/Enhancing-respiratory-comfort-with-fan-respirators
-         */
-
-        type                uniformFixedValue;  
-        uniformValue
-        {
-            type             sine;
-            frequency        1;            // single sine revolution over 2*Pi (~ 6.3) [t]
-            amplitude        (0 0 10);     // Conservative: magnitude is 2 * calculated velocity value
-            level            (0 0 0);      // Offset
-        }
-    }
     person
-    {
-        type            noSlip;
-    }
-    fan
     {
         type            noSlip;
     }
@@ -110,19 +106,27 @@ boundaryField
     }
     atmos
     {
+        type            noSlip;
+    }
+    atmosEnd
+    {
         type            zeroGradient;
     }
-    oldInternalFaces
+    iFaceDownstream
     {
-        type            internal;
+        type            zeroGradient;
     }
-    interface
+    iFaceUpstr
     {
-        type            slip;
+        type            zeroGradient;
     }
-    interfaceShield
+    iFaceDownCube
     {
-        type            slip;
+        type            zeroGradient;
+    }
+    iFaceCube
+    {
+        type            zeroGradient;
     }
 }
 
