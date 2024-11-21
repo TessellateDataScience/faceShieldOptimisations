@@ -1,12 +1,12 @@
 # Complex geometry meshing using _cfMesh_: combination of cell types: poly, tet, and hex.
 _Published: 2024 May  
-Nick Howlett, M. Eng. Science (Research)  
-Founder | Tessellate Computate, Australia._  
+Nick Howlett, Tessellate Data Science.  
 
 > _**Who owns the mesh, owns the solution.**_ - Dr Hrvoje Jasak, Founder of OpenFOAM.
 
 ## Introduction
 _cfMesh_ is a cross-platform library for automatic mesh generation that is built on top of OpenFOAM. cfMesh is licensed under General Public License (GNU), and compatible with all recent versions of OpenFOAM [0]. 
+
 ## Cell types
 cfMesh can create polyhedra cells, in addition to more standard tetradehra and hexahedra cells that are can also be created in other open-source meshing software such as [_Gmsh_](https://gmsh.info/doc/texinfo/gmsh.html). It's these polyhedra cells types in combination with cfMesh's flexible geometry representation that we believe can allow it to achieve a 'good' quality mesh (see below for evidence).
 
@@ -30,7 +30,7 @@ In this particular flow scenario, we believe the degredation of our geometry wou
 Interestingly we also found meshes were non-deterministic for same mesh parameters, hence their respective quality results differed (which has also been [seen elsewhere](https://www.cfd-online.com/Forums/openfoam-community-contributions/198872-general-workflow-create-flawless-mesh-cfmesh.html)), although we suspect previous parameter-dependent behaviour. Additonally we found the `improveMeshQuality` utility's improvements hit-or-miss, which appeared random.
 
 ## Meshing tutorial
-We now guide the reader thru meshing the complex geometry, described above, using cfMesh. cfMesh is available in-built with _OpenFOAM 2312_ so you're advised to install that version. _OpenSCAD_ (also open-source) is also needed for the geometry creation so install the command-line version. Then download [our mesh files](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/foamCases/3D_LES_particles/partShield).
+We now guide the reader thru meshing the complex geometry, described above, using cfMesh. cfMesh is available in-built with _OpenFOAM 2312_ so you're advised to install that version. _OpenSCAD_ (also open-source) is also needed for the geometry creation so install the command-line version. Then download [related files](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/foamCases/3D_LES_particles/partShield).
 
 ### Meshing: STL vs FMS
 cfMesh allows retaining particular edges (features) of the geometry via it's `surfaceFeatureEdges` utility which converts an STL file to FMS format. This utility enforces this features (making them contraints on the subsequent meshing process), which we found much computationally harder than meshing the original STL file. Meshing the STL file caused the geometry to be degraded, which could potentially change the fluid dynamics. Another tip is to visually inspect the mesh (such as using ParaView) to ensure the geometry isn't corroded significantly. 
