@@ -13,8 +13,10 @@ All applicable intellectual property (IP) we generate is made available under an
 
 Due to this IP license expiring, we have from the date of it's expiry adopted our own pledge (defined within this document as 'Our Pledge'). Our Pledge includes an infinite duration that this license has adopted as it's Time Limitation clause. 
 
-## Geting involved
+## Getting involved
 Potential collaborators are encouraged to only contribute Content that they intend to give to Tessellate Data Science (see 'Use of our work'), and also where there is lesser conflict regarding any IP that may be generated from this Content. We intend to protect ideas in the broader public interest using (arguably outdated) legal IP protection mechanisms - to prevent larger, predatory companies 'locking-up' IP to stall innovation (a used mechanism in the Big Pharma industry).
+
+> If your interested in doing some computation-science research and/or potentially contributing, please read our guide on [getting started](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/getStarted).
 
 ## Research deliverables
 We expect a number of outcomes that will be generated from this research:
