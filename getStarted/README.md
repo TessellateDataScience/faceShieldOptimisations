@@ -33,7 +33,7 @@ Start the Docker Desktop app [1] and start the Terminal app [2], then copy/paste
 ```
 mkdir foamDockEnv
 cd ./foamDockEnv
-docker run -it --mount "type=bind,src=$pwd,target=/home/foam/files" nchowlett/foam-tds:1.2 sh
+docker run -it --mount "type=bind,src=$pwd,target=/home/foam/files" nchowlett/foam-tds:1.3 sh
 ``` 
 
 You're now able to launch computational investigations via the freely-available OpenFOAM software. First enable the pre-configured environment by executing:
