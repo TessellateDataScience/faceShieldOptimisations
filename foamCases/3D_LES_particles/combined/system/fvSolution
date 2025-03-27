@@ -21,17 +21,26 @@ solvers
         solver          GAMG;
         smoother        GaussSeidel;
         tolerance       0.001;
-
     }
-
     pFinal
     {
         $p;
         smoother        DICGaussSeidel;
         tolerance       1e-4;
     }
-
-    "(U|k|nuTilda).*"
+    Final
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-4;
+    }
+    kFinal
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-4;
+    }
+    nuTildaFinal
     {
         solver          smoothSolver;
         smoother        symGaussSeidel;
@@ -41,7 +50,7 @@ solvers
 
 PIMPLE
 {
-    nNonOrthogonalCorrectors    1; // non-orthogonal (~ 80 degrees) cells = 2+
+    nNonOrthogonalCorrectors    1; // non-orthogonal cells: ~ 80 degrees = 2+
     nCorrectors                 1;
 }
 
