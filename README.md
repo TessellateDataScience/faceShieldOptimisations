@@ -9,7 +9,7 @@ Once confident our modelling accurately reflects reality (via validation against
 >**We believe that healthcare should be for all, not just the rich. Feel the same? Check out [People's Medicines Alliance](www.peoplesmedicines.org).**
 
 ## Getting involved
-Potential collaborators are encouraged to only contribute Content that they intend to give to Tessellate Data Science (see 'Use of our work'), and also where there is lesser conflict regarding any IP that may be generated from this Content. We intend to protect ideas in the broader public interest using (arguably outdated) legal IP protection mechanisms - to prevent larger, predatory companies 'locking-up' IP to stall innovation (a used mechanism in the Big Pharma industry).
+Potential collaborators are encouraged to only contribute Content that they intend to give to Tessellate Data Science (see 'Use of our work'), and also where there is lesser conflict regarding any intellectual property (IP) that may be generated from this Content. We intend to [protect ideas](https://github.com/TessellateDataScience/faceShieldOptimisations/wiki/3.-Innovation) in the broader public interest using these arguably outdated legal IP mechanisms - to prevent larger, predatory companies 'locking-up' potential innovations (a used mechanism in the Big Pharma industry).
 
 > If your interested in doing some computation-science research and/or potentially contributing, please read our guide on [getting started](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/getStarted).
 
