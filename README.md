@@ -1,6 +1,6 @@
 # Computational modelling of speech-driven airflow between two people: assessing face-shields' effectiveness against airborne transmission of COVID-19
 ## Summary
-_We use Computational Fluid Dynamics [1] to investigate and assess the airflow and, in particular the bioaerosols, interaction between a person speaking and another person in close proximity (who is wearing a commercially-available face shield)._
+_We use Computational Fluid Dynamics to investigate and assess the airflow and, in particular the bioaerosols, interaction between a person speaking and another person in close proximity (who is wearing a commercially-available face shield)._
 
 Once confident our modelling accurately reflects reality (via validation against experimental results and numerical parameter's sensitivity studies), we will then attempt to design a improved shield using an iterative approach, and assess it's effectiveness as compared to status-quo products.
 
