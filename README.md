@@ -36,7 +36,7 @@ The expected 'research impacts' are assuming the research objectives are achieve
 We believe our approach of quantifying the risk into a simpler quantity can be broadly adopted for other PPE assessment, allowing more accuracy in deciding on an appropriate level of protection for the wearer. We realise this requires the concurrent development of quantifiying and standardising 'exposure risk' (e.g. high to low risk categories of common situations), which will believe is more challenging to undertake accurately than this investigation.
 
 ## Further details
-The rationale for the scenario under investigation & an introduction to the fluid dynamics involved in the scenario can be found in the [next section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/1_rationale-intro.md). Our current research findings can be seen in our [progress section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/3_progress.md).
+The rationale for the scenario under investigation & an introduction to the fluid dynamics involved in the scenario can be found in the [next section](https://github.com/TessellateDataScience/faceShieldOptimisations/blob/main/1_rationale-intro.md).
 
 ## References
 [1] Creative Commons | BY 4.0 License: https://creativecommons.org/licenses/by/4.0  
