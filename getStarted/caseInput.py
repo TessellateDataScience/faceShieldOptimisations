@@ -1,26 +1,26 @@
 # Modifiable parameters
 numbCores 		= 2 			# number of CPU cores allocated to each computation
-endTime 		= 0.003 		# total flow time to compute
-writeInterval 	= 0.003			# save data every interval
-deltaT 			= 0.0005		# time-step for most of computation (main)
+endTime 		= 0.003 		# total flow time to compute [secs]
+writeInterval 		= 0.003			# save data every interval [secs]
+deltaT 			= 0.0005		# main time-step for computation [secs]
 
 
 # Don't modify below (just yet)
-startupDeltaT 	= 0.0002 		# time-step for inital startup
-startupEndTime 	= 0.001 		# time to switch to main time-step size
+startupDeltaT 	= 0.0002 		# time-step for inital startup [secs]
+startupEndTime 	= 0.001 		# time to switch to main time-step size [secs]
 
 from foamlib import FoamCase, FoamFile, AsyncFoamCase
 import os, asyncio
 
 # prevent decomposition errors
-case = FoamCase("../combined")
+case = FoamCase("./case0")
 case.clean()
-decParDict = FoamFile("../combined/system/decomposeParDict")
+decParDict = FoamFile("./case0/system/decomposeParDict")
 decParDict["numberOfSubdomains"] = numbCores
 print("-> computation pre-processing...")
-case.decompose_par()
-replaceNaN = "sed -i -e 's/nan/0/g' ../combined/processor*/0/U"
-os.system(replaceNaN)
+#case.decompose_par()
+#replaceNaN = "sed -i -e 's/nan/0/g' ../case0/processor*/0/U"
+#os.system(replaceNaN)
 
 # run startup with relaxed values
 case.control_dict["deltaT"] 		= startupDeltaT
@@ -35,7 +35,7 @@ case.control_dict["writeInterval"]	= writeInterval
 
 # bug: can't change time-step values as processor* dirs create duplicate startup timestep values
 cmd0 = "sed -i -e 's/deltaT          0.0002/deltaT          "
-cmd1 = "/g' ../combined/processor*/0.001/uniform/time"
+cmd1 = "/g' ./case0/processor*/0.001/uniform/time"
 os.system(cmd0 + str(deltaT) + cmd1)
 
 # show progress check of computation
@@ -51,7 +51,7 @@ def latestTimeLog(fname, numbLines):
 
 def printWhile():
 	timeD = 0
-	fname = '../combined/log.foamRun'
+	fname = './case0/log.foamRun'
 	numbLines = 70
 	timeLatestF = float(0.0)
 	with Progress() as progress:
@@ -77,6 +77,11 @@ pPrint.start()
 pCase.join()
 pPrint.join()
 
+# cleanup
+print("-> computation post-processing...")
+case.reconstruct_par()
+os.system("cp -r ./case0/log.foamRun ./case0/caseOutput.log")
+print("-> computation completed!")
 # cleanup
 print("-> computation post-processing...")
 case.reconstruct_par()
