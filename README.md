@@ -1,8 +1,7 @@
-# Computational modelling of speech-driven airflow between two people: assessing face-shields' effectiveness against airborne transmission of COVID-19
+# Computational modelling of speech-driven airflow between two people: face-shields' against airborne transmission of COVID-19
 ## Summary
-_We use Computational Fluid Dynamics to investigate and assess the airflow and, in particular the bioaerosols, interaction between a person speaking and another person in close proximity (who is wearing a commercially-available face shield)._
-
-Once confident our modelling accurately reflects reality (via validation against experimental results and numerical parameter's sensitivity studies), we will then attempt to design a improved shield using an iterative approach, and assess it's effectiveness as compared to status-quo products.
+_We use Computational Fluid Dynamics to investigate and assess the airflow produced during an interaction between a person speaking and another person in close proximity (who is wearing a standard face shield)._ 
+In particular we are 'modelling' a scenario where we assume the person speaking is infected with a virus and is transmitting this virus via tiny droplets as they speak. Once confident our modelling accurately reflects reality we'll attempt to design an improved shield that has the ability to reduce this airborne-virus transmission, ultimately hoping to contribute another line-of-defence that helps during the next pandemic.
 
 <p align="center"><img src="https://github.com/user-attachments/assets/e23c68b3-a5d3-4ae4-8b25-08b2d2a477d7"></p>
 
