@@ -5,7 +5,7 @@ In particular we are 'modelling' a scenario where we assume the person speaking 
 
 <p align="center"><img src="https://github.com/user-attachments/assets/e23c68b3-a5d3-4ae4-8b25-08b2d2a477d7"></p>
 
->**We believe that healthcare should be for all (not just the rich).** Feel the same? Check out [People's Medicines Alliance](https://peoplesmedicines.org/). Thanks to [Folding@home](https://foldingathome.org/) for the inspiration, their dedication, and innovative thinking.**
+>**We believe that healthcare should be for all (not just the rich).** Feel the same? Check out [People's Medicines Alliance](https://peoplesmedicines.org/). Thanks to [Folding@home](https://foldingathome.org/) for the inspiration, their dedication, and innovative thinking.
 
 ## Getting involved
 You are highly encouraged to help address the inequity in vaccination rates across countries. You can contribute to this project from any background (whether a student, researcher, software developer, doctor, nurse, etc). All that's required is a willingness to learn (including more advanced computer skills). We would also love you to tell people you know about this project and help make this citizen science approach known to a wider global audience.
