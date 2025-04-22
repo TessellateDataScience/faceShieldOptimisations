@@ -15,7 +15,7 @@ Start the Docker Desktop app [2] and start the Terminal app [3], then copy/paste
 ```
 mkdir foamDockEnv
 cd ./foamDockEnv
-docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.1 sh
+docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.4 sh
 ``` 
 
 You're now able to launch computational investigations via the freely-available OpenFOAM software. First enable the pre-configured environment by executing:
@@ -36,13 +36,12 @@ If you have more than 4 cores available in your CPU, you can change the number t
 numbCores = 4
 ...
 ```
-Save the file then run the computation. After the computation is complete you can 
-stop the platform by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics! 
+Save the file then run the computation. After the computation is complete you can stop our computatinal platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics! 
 
-## Getting deeper
-Before you get carried away with excitement, realise you've simulated T = 0.003 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs], which most likely take ~ 12 hours for a single computation. 
+## Longer computations
+Before you get carried away with excitement, realise you've simulated T = 0.003 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs], which most likely take ~ 12 hours for a single computation. To increase the time simulated modify `caseInput.py` again, this time changing the `endTime` parameter to	= 45.0 (while changing `writeInterval` to ~ 5.0). Then run a computational investigation after saving that file.
 
-More positively, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynanics & changing PPE designs.
+As an aside, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynamics & changing PPE designs.
 
 ## Footnotes
 [0] Saving you 3+ years of time due to not having to complete usually non-essential 'requirements' as part of research degree prerequisites).  
