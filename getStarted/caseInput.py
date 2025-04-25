@@ -1,13 +1,12 @@
 # Modifiable parameters
 numbCores 		= 2 			# number of CPU cores allocated to each computation
-endTime 		= 0.003 		# total flow time to compute [secs]
-writeInterval 		= 0.003			# save data every interval [secs]
-deltaT 			= 0.0005		# main time-step for computation [secs]
-
+endTime 		= 1.0 			# total flow time to compute [secs]
 
 # Don't modify below (just yet)
-startupDeltaT 	= 0.0002 		# time-step for inital startup [secs]
-startupEndTime 	= 0.001 		# time to switch to main time-step size [secs]
+deltaT 			= 0.0005		# main time-step for computation [secs]
+writeInterval 		= 0.5			# save data every interval [secs]
+startupDeltaT 		= 0.0002 		# under-relax for startup flow [secs]
+startupEndTime 		= 0.5 			# time to switch to main time-step size [secs]
 
 from foamlib import FoamCase, FoamFile, AsyncFoamCase
 import os, asyncio
