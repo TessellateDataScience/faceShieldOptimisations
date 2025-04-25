@@ -1,7 +1,7 @@
 # Getting started with computational modelling of speech-driven airflow between two people
 We've developed a 'turnkey' application (software) that allows anyone with a computer to do some fluid-dynamic research in an accessible way, without being a computational-science expert from the start. 
 
-## Motivated enough?
+## Motivation: their life reason enough?
 _Do you value that everyone have access to healthcare as easily as we do in Western countries?_
  - You can do computational-based research to advance this cause (without the credentialism [0]):
    - Less impact on your ability to go to other 'work'.
