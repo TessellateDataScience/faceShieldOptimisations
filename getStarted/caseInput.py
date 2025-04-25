@@ -1,5 +1,5 @@
 # Modifiable parameters
-numbCores 		= 2 			# number of CPU cores allocated to each computation
+numbCores 		= 4 			# number of CPU cores allocated to each computation
 endTime 		= 1.0 			# total flow time to compute [secs]
 
 # Don't modify below (just yet)
