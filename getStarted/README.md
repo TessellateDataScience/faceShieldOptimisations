@@ -39,7 +39,7 @@ numbCores = 4
 Save the file then run the computation. After the computation is complete you can stop our computatinal platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics! 
 
 ## Longer computations
-Before you get carried away with excitement, realise you've simulated T = 0.003 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs], which most likely take ~ 48 hours for a single computation. To increase the time simulated modify `caseInput.py` again, this time changing the `endTime` parameter to	= 45.0 and `deltaT` to = 0.00075 (while changing `writeInterval` to ~ 5.0). Then run a computational investigation after saving that file.
+Before you get carried away with excitement, realise you've simulated T = 0.003 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs], which most likely take ~ 48 hours for a single computation. To increase the time simulated modify `caseInput.py` again, this time changing the `endTime` parameter to	= 45.0 (while changing `writeInterval` to = 0.5). Then run a computational investigation after saving that file.
 
 As an aside, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynamics & changing PPE designs.
 
