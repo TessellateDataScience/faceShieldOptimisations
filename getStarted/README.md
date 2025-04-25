@@ -28,9 +28,9 @@ ipython
 You'll need to get `caseInput.py` from our [online repository](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/getStarted) and save it in the `./foamDockEnv` directory. Then make a copy of OpenFOAM's case (input) directory to ensure reproducibility via `cp -r /home/foamFiles/combined /home/foam/case0`. This `case0` directory should now be viewable, and moreover modifiable without risk of messing up the computations more permanently, within your `foamDockEnv` directory.
 
 ## Running computations
-Conduct a computational investigation by executing `%run ./caseInput.py`, after which you'll see overall indication of the computation's status. Allow the computation to complete, which should take ~ 2 minutes. 
+Conduct a computational investigation by executing `%run ./caseInput.py`, after which you'll see overall indication of the computation's status. Allow the computation to complete, which should take ~ 1 hour. 
 
-If you have more than 4 cores available in your CPU, you can change the number to be allocated to the next computation. You'll need to modify `caseInput.py`, changing the relevant parameter's value:
+If you have more than 2 cores available in your CPU, you can change the number to be allocated to the next computation. You'll need to modify `caseInput.py`, changing the relevant parameter's value:
 ```
 ...
 numbCores = 4
@@ -39,7 +39,7 @@ numbCores = 4
 Save the file then run the computation. After the computation is complete you can stop our computatinal platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics! 
 
 ## Longer computations
-Before you get carried away with excitement, realise you've simulated T = 0.003 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs], which most likely take ~ 48 hours for a single computation. To increase the time simulated modify `caseInput.py` again, this time changing the `endTime` parameter to	= 45.0 (while changing `writeInterval` to = 0.5). Then run a computational investigation after saving that file.
+Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs], which most likely take ~ 48 hours for a single computation. To increase the time simulated modify `caseInput.py` again, this time changing the `endTime` parameter to	= 45.0. Then run a computational investigation after saving that file.
 
 As an aside, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynamics & changing PPE designs.
 
