@@ -41,9 +41,7 @@ Save the file then run the computation. After the computation is complete you ca
 ## Longer computations
 Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs]. To increase the time simulated modify `caseInput.py` again, this time changing the `endTime` parameter to	= 45.0. Then run a computational investigation after saving that file.
 
-As an aside, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynamics & changing PPE designs.
-
-## Novel design of face shield
+## Novel face-shield design
 The computation above simulates flow around a 'normal' face shield. We've also provided a 'novel' design where surfaces cover the bottom and sides (with a gap near the wearer's face). Salient differences between these designs are shown below:
 
 <img src="shieldNormalMod.png" width="500" height="450"/> <img src="shieldEnclosedMod.png" width="500" height="450"/> 
@@ -59,6 +57,9 @@ You'll then need to rebuild the case. First `cd ./combined` then `bash caseSetup
 We've developed code that uses [pyVista](https://pyvista.org/) within a [Jupyter](https://jupyter.org/) environment. To enable this 'post-processing' environment, exit the computational env. then execute `docker run -it -v "$(pwd):/home/jovyan/work" -p 8888:8888 ghcr.io/pyvista/pyvista:latest`. Once the environment is loaded, copy then paste the URL (similar to 'http://127.0.0.1:8888/lab?token=139...') into your web browser (Chrome, Firefox, etc). 
 
 Select 'Python' under 'Notebook', then click on the `work` directory (on left side). To run our analysis on your computations, download `dataAnalysis.ipynb` into your 'working' directory (`foamDockEnv`) then open that notebook (visible within `work` directory). Run that notebook using the 'double play' button. You show see bioaerosols' trajectories appear below the last 'cell'. If you get an error (shown in red), you will probably have to change the 'path' to your case data, or comment out some lines in each `0/*` file via `//#includeEtc "caseDicts/setConstraintTypes"`.
+
+## Co-designing of research
+As an aside, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynamics & changing PPE designs.
 
 ## Footnotes
 [0] Saving you 3+ years of time due to not having to complete usually non-essential 'requirements' as part of research degree prerequisites).  
