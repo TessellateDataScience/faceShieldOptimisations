@@ -44,7 +44,12 @@ Before you get carried away with excitement, realise you've simulated 1.0 second
 As an aside, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynamics & changing PPE designs.
 
 ## Numerous designs of face shields
-The computation above simulates flow around a 'normal' face shield. We've also provided a 'novel' design where surfaces cover the bottom and sides (with a gap near the wearer's face).
+The computation above simulates flow around a 'normal' face shield. We've also provided a 'novel' design where surfaces cover the bottom and sides (with a gap near the wearer's face). Salient differences between these designs are shown below:
+
+<img src="shieldNormalMod.png" width="500" height="450"/> <img src="shieldEnclosedMod.png" width="500" height="450"/> 
+<p align="center"><i>
+  Images showing salient differences in face-shield designs: (left) 'normal' status-quo product, and (right) 'novel' commercially-unavaiable product.
+</i></p>
 
 To run identical computations across these differing designs (effectively a perfect A/B Test), you need to load the enclosed face-shield 'geometry' data. To do this, `cd ../../foamFiles` to go to the source files, then `git log` to show the differing geometry data available. To make the enclosed face-shield geometry active, `git checkout 9988d9` (the first 6 digits of the commit number).
 
