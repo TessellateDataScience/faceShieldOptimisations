@@ -27,19 +27,10 @@ ipython
 ```
 You'll need to get `caseInput.py` from our [online repository](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/getStarted) and save it in the `./foamDockEnv` directory. Then make a copy of OpenFOAM's case (input) directory to ensure reproducibility via `cp -r /home/foamFiles/combined /home/foam/case0`. This `case0` directory should now be viewable, and moreover modifiable without risk of messing up the computations more permanently, within your `foamDockEnv` directory.
 
-## Running computations
-Conduct a computational investigation by executing `%run ./caseInput.py`, during which you'll get an indication of the computation's progress. Allow the computation to complete, which should take ~ 1 hour. 
+## Run a computation
+Conduct a test computation by executing `%run ./caseInput.py`, during which you'll get an indication of the computation's progress. Allow the computation to complete, which should take ~ 1 hour. After the computation is complete you can stop our computatinal platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics!
 
-If you have more than 4 cores available in your CPU, you can change the number to be allocated to the next computation. You'll need to modify `caseInput.py`, changing the relevant parameter's value:
-```
-...
-numbCores = 8
-...
-```
-Save the file then run the computation. After the computation is complete you can stop our computatinal platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics! 
-
-## Longer computations
-Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs]. To increase the time simulated modify `caseInput.py` again, this time changing the `endTime` parameter to	= 45.0. Then run a computational investigation after saving that file.
+Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs]. To increase the time simulated modify `caseInput.py`, changing the `endTime` parameter to	= 45.0. If you have more than 4 cores available in your CPU (or are restricted to less) you can change the number to be allocated to each computation via modifying `numbCores`. Save the file then run the computation. 
 
 ## Novel face-shield design
 The computation above simulates flow around a 'normal' face shield. We've also provided a 'novel' design where surfaces cover the bottom and sides (with a gap near the wearer's face). Salient differences between these designs are shown below:
