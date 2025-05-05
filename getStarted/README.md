@@ -43,6 +43,18 @@ Before you get carried away with excitement, realise you've simulated 1.0 second
 
 As an aside, we're leveraging a server with loads of cores to run numerous computations simultaneously, with intention to increase confidence (reliability) such investigations, like yours above, are adequately accurate. But, you might want to explore a recommended OpenFOAM reference [4] to more fully understand what is computing under-the-hood, if you're interested in further investigations of the fluid dynamics & changing PPE designs.
 
+## Numerous designs of face shields
+The computation above simulates flow around a 'normal' face shield. We've also provided a 'novel' design where surfaces cover the bottom and sides (with a gap near the wearer's face).
+
+To run identical computations across these differing designs (effectively a perfect A/B Test), you need to load the enclosed face-shield 'geometry' data. To do this, `cd ../../foamFiles` to go to the source files, then `git log` to show the differing geometry data available. To make the enclosed face-shield geometry active, `git checkout 9988d9` (the first 6 digits of the commit number).
+
+You'll then need to rebuild the case. First `cd ./combined` then `bash caseSetup.sh`. Let the environment do it's thing, and if all is well you'll see 'Mesh OK' after `checkMesh`. Save your previous 'case0' as another name, then copy the new case to your working directory via `cp -r /home/foamFiles/combined /home/foam/caseNovel`. Finally run a computation of airflow around the novel shield. 
+
+## Analysis of designs
+We've developed code that uses [pyVista](https://pyvista.org/) within a [Jupyter](https://jupyter.org/) environment. To enable this 'post-processing' environment, exit the computational env. then execute `docker run -it -v "$(pwd):/home/jovyan/work" -p 8888:8888 ghcr.io/pyvista/pyvista:latest`. Once the environment is loaded, copy then paste the URL (similar to 'http://127.0.0.1:8888/lab?token=139...') into your web browser (Chrome, Firefox, etc). 
+
+Select 'Python' under 'Notebook', then click on the `work` directory (on left side). To run our analysis on your computations, download `dataAnalysis.ipynb` into your 'working' directory (`foamDockEnv`) then open that notebook (visible within `work` directory). Run that notebook using the 'double play' button. You show see bioaerosols' trajectories appear below the last 'cell'. If you get an error (shown in red), you will probably have to change the 'path' to your case data, or comment out some lines in each `0/*` file via `//#includeEtc "caseDicts/setConstraintTypes"`.
+
 ## Footnotes
 [0] Saving you 3+ years of time due to not having to complete usually non-essential 'requirements' as part of research degree prerequisites).  
 [1] Coursera | What Is Social Entrepreneurship? A Guide: https://www.coursera.org/articles/social-entrepreneurship  
