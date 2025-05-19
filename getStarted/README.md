@@ -1,5 +1,5 @@
 # Getting started with computational modelling of speech-driven airflow between two people
-We've developed a 'turnkey' application (software) that allows anyone with a computer to do some fluid-dynamic research in an accessible way, without being a computational-science expert from the start. 
+We've developed a 'turnkey' application (software) that allows anyone with a computer to do some _fluid dynamics_ research in an accessible way, without being a _computational science_ expert from the start. 
 
 ## Motivation: is their life good enough?
 _Do you value that everyone have access to healthcare as easily as we do in Western countries?_
