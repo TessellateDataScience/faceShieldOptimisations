@@ -12,13 +12,13 @@ from foamlib import FoamCase, FoamFile, AsyncFoamCase
 import os, asyncio
 
 # prevent decomposition errors
-case = FoamCase("./case0")
+case = FoamCase("./caseRun")
 case.clean()
-decParDict = FoamFile("./case0/system/decomposeParDict")
+decParDict = FoamFile("./caseRun/system/decomposeParDict")
 decParDict["numberOfSubdomains"] = numbCores
 print("-> computation pre-processing...")
 #case.decompose_par()
-#replaceNaN = "sed -i -e 's/nan/0/g' ../case0/processor*/0/U"
+#replaceNaN = "sed -i -e 's/nan/0/g' ../caseRun/processor*/0/U"
 #os.system(replaceNaN)
 
 # run startup with relaxed values
@@ -34,7 +34,7 @@ case.control_dict["writeInterval"]	= writeInterval
 
 # bug: can't change time-step values as processor* dirs create duplicate startup timestep values
 cmd0 = "sed -i -e 's/deltaT          0.0002/deltaT          "
-cmd1 = "/g' ./case0/processor*/0.001/uniform/time"
+cmd1 = "/g' ./caseRun/processor*/0.001/uniform/time"
 os.system(cmd0 + str(deltaT) + cmd1)
 
 # show progress check of computation
@@ -50,7 +50,7 @@ def latestTimeLog(fname, numbLines):
 
 def printWhile():
 	timeD = 0
-	fname = './case0/log.foamRun'
+	fname = './caseRun/log.foamRun'
 	numbLines = 70
 	timeLatestF = float(0.0)
 	with Progress() as progress:
@@ -79,7 +79,7 @@ pPrint.join()
 # cleanup
 print("-> computation post-processing...")
 case.reconstruct_par()
-os.system("cp -r ./case0/log.foamRun ./case0/caseOutput.log")
+os.system("cp -r ./caseRun/log.foamRun ./caseRun/caseOutput.log")
 print("-> computation completed!")
 # cleanup
 print("-> computation post-processing...")
