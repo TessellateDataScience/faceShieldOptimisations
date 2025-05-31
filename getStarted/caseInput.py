@@ -16,7 +16,7 @@ case = FoamCase("./caseRun")
 case.clean()
 decParDict = FoamFile("./caseRun/system/decomposeParDict")
 decParDict["numberOfSubdomains"] = numbCores
-print("-> computation pre-processing...")
+print("-> computation prerequisite...")
 #case.decompose_par()
 #replaceNaN = "sed -i -e 's/nan/0/g' ../caseRun/processor*/0/U"
 #os.system(replaceNaN)
@@ -77,12 +77,7 @@ pCase.join()
 pPrint.join()
 
 # cleanup
-print("-> computation post-processing...")
+print("-> computation clean-up...")
 case.reconstruct_par()
-os.system("cp -r ./caseRun/log.foamRun ./caseRun/caseOutput.log")
-print("-> computation completed!")
-# cleanup
-print("-> computation post-processing...")
-case.reconstruct_par()
-os.system("sudo cp -r ../combined/log.foamRun ./caseOutput.log")
+os.system("mv ./caseRun/log.foamRun ./caseRun/caseOutput.log")
 print("-> computation completed!")
