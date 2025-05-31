@@ -40,7 +40,7 @@ The computation above simulates flow around a 'normal' face shield. We've also p
   Computer-aided design representation of 2 differing face-shield designs: 'normal' status-quo product (left), and 'novel' commercially-unavailable product (right). Both products are thinner than they are represented by this CAD (with a real thickness similar to currently-available face-shields).
 </i></p>
 
-To run identical computations across these differing designs (effectively a perfect A/B Test), you need to load the enclosed face-shield 'geometry' data. To do this, `cd ../../foamFiles` to go to the source files, then `git log` to show the differing geometry data available. To make the enclosed face-shield geometry active, `git checkout 9988d9` (the first 6 digits of the commit number).
+To run identical computations across these differing designs (effectively a perfect _randomised trial_), you need to load the enclosed face-shield 'geometry' data. To do this, `cd ../../foamFiles` to go to the source files, then `git log` to show the differing geometry data available. To make the enclosed face-shield geometry active, `git checkout 9988d9` (the first 6 digits of the commit number).
 
 You'll then need to rebuild the case. First `cd ./combined` then `bash caseSetup.sh`. Let the environment do it's thing, and if all is well you'll see 'Mesh OK' after `checkMesh`. Save your previous 'case0' as another name, then copy the new case to your working directory via `cp -r /home/foamFiles/combined /home/foam/caseNovel`. Finally run a computation of airflow around the novel shield. 
 
