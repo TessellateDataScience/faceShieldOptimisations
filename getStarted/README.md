@@ -15,7 +15,7 @@ Start the Docker Desktop app [2] and start the Terminal app [3], then copy/paste
 ```
 mkdir foamDockEnv
 cd ./foamDockEnv
-docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.11 sh
+docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.12 sh
 ``` 
 
 You're now able to launch computational investigations via the freely-available OpenFOAM software. First enable the pre-configured environment by executing:
@@ -28,7 +28,7 @@ ipython
 You'll need to get `caseInput.py` from our [online repository](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/getStarted) and save it in the `./foamDockEnv` directory. Then make a copy of OpenFOAM's case (input) directory to ensure reproducibility via `cp -r /home/foamFiles/combined /home/foam/caseRun`. This `caseRun` directory should now be viewable, and moreover modifiable without risk of messing up the computations more permanently, within your `foamDockEnv` directory.
 
 ## Run a computation
-Conduct a test computation by executing `%run ./caseInput.py`, during which you'll get an indication of the computation's progress. Allow the computation to complete, which should take ~ 1 hour. After the computation is complete you can stop our computatinal platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics!
+Conduct a test computation by executing `%run ./caseInput.py`, during which you'll get an indication of the computation's progress. Allow the computation to complete, which should take ~ 1 hour. After the computation is complete you can stop our computational platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of computational fluid dynamics!
 
 Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs]. To increase the time simulated modify `caseInput.py`, changing the `endTime` parameter to	= 45.0. If you have less than 4 cores available in your CPU you can change the number to be allocated to each computation via modifying `numbCores` (increasing the cores allocated to > 6 burns energy for very little gain). Save the file then run the computation. 
 
@@ -40,7 +40,7 @@ The computation above simulates flow around a conventional face shield (labelled
   Computer-aided design representation of 2 differing face-shield designs: 'normal' is a commercially-available product (left), while 'enclosed' is a proposed innovative product (right). Both actual designs are thinner than they are represented by this CAD (with a real thickness similar to currently-available face-shields).
 </i></p>
 
-To run identical computations across these differing designs (effectively a perfect _randomised trial_), you need to enable the enclosed face-shield design 'geometry' data then remesh this geometry: 
+To run identical computations across these differing designs (effectively a perfect _randomised trial_), you first need to enable the enclosed face-shield design 'geometry' data then remesh this geometry: 
 ```
 cd ../../foamFiles  
 git checkout enclosed
@@ -48,10 +48,10 @@ cd ./combined
 bash caseSetup.sh
 ```
 
-Let the environment do it's thing, and if all is well you'll see 'Mesh OK' after `checkMesh`. Save your previous 'caseRun' as another name, then copy the 'enclosed' case to your working directory via the same command as before. Finally run a computation of airflow around the novel shield.
+Let the environment remesh, and if all is well you'll see 'Mesh OK' after you execute `checkMesh`. Save your previous 'caseRun' as another name, then copy the 'enclosed' case to your working directory via the same command as before. Finally run a computation of airflow around the novel shield.
 
 ## Analysis of designs
-We've developed code that uses [pyVista](https://pyvista.org/) within a [Jupyter](https://jupyter.org/) environment. To enable this 'post-processing' environment, exit the computational env. then execute `docker run -it -v "$(pwd):/home/jovyan/work" -p 8888:8888 ghcr.io/pyvista/pyvista:latest`. Once the environment is loaded, copy then paste the URL (similar to 'http://127.0.0.1:8888/lab?token=139...') into your web browser (Chrome, Firefox, etc). 
+To conduct analysis of the computational results it's easier if you use another more-dedicated 'post-processing' environment. To enable this [Jupyter](https://jupyter.org/) environment, exit the computational env. then execute `docker run -it -v "$(pwd):/home/jovyan/work" -p 8888:8888 ghcr.io/pyvista/pyvista:latest`. Once the environment is loaded, copy then paste the URL (similar to 'http://127.0.0.1:8888/lab?token=139...') into your web browser (Chrome, Firefox, etc). 
 
 Select 'Python' under 'Notebook', then click on the `work` directory (on left side). To run our analysis on your computations, download `dataAnalysis.ipynb` into your 'working' directory (`foamDockEnv`) then open that notebook (visible within `work` directory). Run that notebook using the 'double play' button. You show see bioaerosols' trajectories appear below the last 'cell'. If you get an error (shown in red), you will probably have to change the 'path' to your case data, or comment out some lines in each `0/*` file via `//#includeEtc "caseDicts/setConstraintTypes"`.
 
