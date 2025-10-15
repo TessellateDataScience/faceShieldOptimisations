@@ -8,18 +8,18 @@ _Do you value that everyone have access to healthcare as easily as we do in West
    - Flexibility to research when you're more in your _flow_ state.
    - Ability to complement R&D with other more provocative endeavours [1].
 
-We have the younger generation in mind, but we realise everyone can decide what's important to them at any age & stage.
+We have the younger generation in mind, including secondary & university students, but we realise everyone can decide what's important to them at any age & stage.
 
 ## Getting started
-Start the Docker Desktop app [2] and start the Terminal app [3], then copy/paste each line that follows to the 'terminal' then hit Enter (i.e. execute that 'command'):
+Start the Docker Desktop app [2] and start the Terminal app [3], then copy/paste each line that follows to the 'terminal' then hit Enter (i.e. execute that 'command'). The following only needs to be done once to create the directory:
 ```
 mkdir foamDockEnv
 cd ./foamDockEnv
-docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.16 sh
 ``` 
 
-You're now able to launch computational investigations via the freely-available OpenFOAM software. First enable the pre-configured environment by executing:
+You're now able to launch computational investigations via the freely-available OpenFOAM software. First launch then load our pre-configured environment by executing:
 ```
+docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.16 sh
 su foam
 . /opt/openfoam12/etc/bashrc
 cd ..
@@ -28,9 +28,11 @@ ipython
 You'll need to get `caseInput.py` from our [online repository](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/getStarted) and save it in the `./foamDockEnv` directory. Then make a copy of OpenFOAM's case (input) directory to ensure reproducibility via `cp -r /home/foamFiles/combined /home/foam/caseRun`. This `caseRun` directory should now be viewable, and moreover modifiable without risk of messing up the computations more permanently, within your `foamDockEnv` directory.
 
 ## Run a computation
-Conduct a test computation by executing `%run ./caseInput.py`, during which you'll get an estimate of the computation's time-to-completed. After the computation is complete you can stop our computational platform ('env') by executing `exit` then `exit` again. Nice work, you've entered the digital realm of _computational fluid dynamics_!
+Conduct a test computation by executing `%run ./caseInput.py`, during which you'll get an estimate of the computation's time-to-completed. After the computation is complete you can stop our computational environment by executing `exit` then `exit` again. Nice work, you've entered the digital realm of _computational fluid dynamics_!
 
 Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs]. To increase the time simulated modify `caseInput.py`, changing the `endTime` parameter to	= 45.0. If you have less than 4 cores available in your CPU you can change the number to be allocated to each computation via modifying `numbCores`. Save the file then run the computation. 
+
+Note the **full computation will take days to complete**, so we recommend you disable hibernatation of your computer while running a computation. In the mean time perhaps check our [more comprehensive education](https://doc.cfd.direct/openfoam/user-guide-v13/backwardstep) material for overview of what elements (both physics and numerics) need to be addressed to conduct a realistic & accurate computation.
 
 ## Novel face-shield design
 The computation above simulates flow around a conventional face shield (labelled 'normal'). We've also provided a novel design where surfaces cover the bottom and sides, with a gap near the wearer's face (labelled 'enclosed'). Relevant differences between these designs are shown below:
