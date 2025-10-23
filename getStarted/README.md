@@ -19,7 +19,7 @@ cd ./foamDockEnv
 
 You're now able to launch computational investigations via the freely-available OpenFOAM software. First launch then load our pre-configured environment by executing:
 ```
-docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.16 sh
+docker run -it --mount "type=bind,src=$pwd,target=/home/foam" nchowlett/foam-tds:U22.1.20 sh
 su foam
 . /opt/openfoam12/etc/bashrc
 cd ..
