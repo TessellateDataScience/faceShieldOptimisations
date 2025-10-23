@@ -47,6 +47,7 @@ To run identical computations across these differing designs (effectively a perf
 cd ../../foamFiles  
 git checkout enclosed
 cd ./combined
+. /opt/openfoam12/etc/bashrc
 bash caseSetup.sh
 ```
 
