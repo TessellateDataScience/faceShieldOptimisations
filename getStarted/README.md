@@ -34,7 +34,7 @@ Before you get carried away with excitement, realise you've simulated 1.0 second
 
 Note the **full computation will take days to complete**, so we recommend you disable hibernatation of your computer while running a computation. In the mean time perhaps check out a [whirlwind introduction to computational fluid dynamics](https://www.youtube.com/watch?v=EYPH6ef3dDA). We're using OpenFOAM as our CFD software, so after the video maybe skim this software's [user guide which introduces the main inputs into the computation](https://doc.cfd.direct/openfoam/user-guide-v13/cases) for an overview of what aspects can be varied. We're thinking this will mostly be focussed on if you have problems running a computation successfully (your computation has _convergence_ problems before your total simulation time has been reached, in other words).
 
-## Novel face-shield design
+## 3. Novel face-shield design
 The computation above simulates flow around a conventional face shield (labelled 'normal'). We've also provided a novel design where surfaces cover the bottom and sides, with a gap near the wearer's face (labelled 'enclosed'). Relevant differences between these designs are shown below:
 
 <img src="shieldNormalMod.png" width="500" height="450"/> <img src="shieldEnclosedMod.png" width="500" height="450"/> 
