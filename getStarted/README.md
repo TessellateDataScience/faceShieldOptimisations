@@ -10,7 +10,7 @@ _Do you value that everyone have access to healthcare as easily as we do in West
 
 We have the younger generation in mind, including secondary & university students, but we realise everyone can decide what's important to them at any age & stage.
 
-## Getting started
+## 1. Getting started
 Start the Docker Desktop app [2] and start the Terminal app [3], then copy/paste each line that follows to the 'terminal' then hit Enter (i.e. execute that 'command'). The following only needs to be done once to create the directory:
 ```
 mkdir foamDockEnv
@@ -27,7 +27,7 @@ ipython
 ```
 You'll need to get `caseInput.py` from our [online repository](https://github.com/TessellateDataScience/faceShieldOptimisations/tree/main/getStarted) and save it in the `./foamDockEnv` directory. Then make a copy of OpenFOAM's case (input) directory to ensure reproducibility via `cp -r /home/foamFiles/combined /home/foam/caseRun`. This `caseRun` directory should now be viewable, and moreover modifiable without risk of messing up the computations more permanently, within your `foamDockEnv` directory.
 
-## Run a computation
+## 2. Run a computation
 Conduct a test computation by executing `%run ./caseInput.py`, during which you'll get an estimate of the computation's time-to-completed. After the computation is complete you can stop our computational environment by executing `exit` then `exit` again. Nice work, you've entered the digital realm of _computational fluid dynamics_!
 
 Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T ~ 45 [secs]. To increase the time simulated modify `caseInput.py`, changing the `endTime` parameter to	= 45.0. If you have less than 4 cores available in your CPU you can change the number to be allocated to each computation via modifying `numbCores`. Save the file then run the computation. 
