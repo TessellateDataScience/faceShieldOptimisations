@@ -1,5 +1,5 @@
 # Getting started with computational modelling of speech-driven airflow between two people
-We've developed a 'turnkey' application (software) that allows anyone with a computer to do some _fluid dynamics_ research in an accessible way, without being a _computational science_ expert from the start. 
+We've developed a 'turnkey' application (software) that allows anyone with a modern computer to do some fluid-dynamics research in an accessible way, without being a _computational science_ expert from the start. 
 
 ## Motivation: is their life good enough?
 _Do you value that everyone have access to healthcare as easily as we do in Western countries?_
@@ -9,6 +9,9 @@ _Do you value that everyone have access to healthcare as easily as we do in West
    - Ability to complement R&D with other more provocative endeavours [1].
 
 We have the younger generation in mind, including secondary & university students, but we realise everyone can decide what's important to them at any age & stage.
+
+> [!WARNING]
+> You'll need a CPU with 6 cores or more such as a AMD Ryzen hexa-core (and that doesn't use hybrid architecture such as Intel Core Ultra). You probably won't be able to run a computation with a quad-core CPU at this stage due to parallelisation errors.
 
 ## 1. Getting started
 Start the Docker Desktop app [2] and start the Terminal app [3], then copy/paste each line that follows to the 'terminal' then hit Enter (i.e. execute that 'command'). The following only needs to be done once to create the directory:
@@ -32,7 +35,7 @@ Conduct a test computation by executing `%run ./caseInput.py`, during which you'
 
 Before you get carried away with excitement, realise you've simulated 1.0 seconds of the fluid dynamics, yet to have an adequate picture of what's happening overall for our scenario you'll probably need to simulate T > 45 [secs]. To increase the time simulated modify `caseInput.py`, changing the `endTime` parameter to	= 60. Save the file then run the computation. 
 
-Unfortunately the **full computation will ~ 24 hours to complete** using a hexa-core AMD-based CPU (you won't be able to run a computation with a quad-core CPU at this stage due to parallelisation errors). If you have 6-core (or more) Ryzen processor we recommend you disable hibernatation of your computer while running a computation. In the mean time perhaps check out a [whirlwind introduction to computational fluid dynamics](https://www.youtube.com/watch?v=EYPH6ef3dDA). We're using OpenFOAM as our CFD software, so after the video maybe skim this software's [user guide which introduces the main inputs into the computation](https://doc.cfd.direct/openfoam/user-guide-v13/cases) for an overview of what aspects can be varied. We're thinking this will mostly be focussed on if you have problems running a computation successfully (your computation has _convergence_ problems before your total simulation time has been reached, in other words).
+Heads up, the **full computation will ~ 24 hours to complete**. If you have enough cores (see warning above) we recommend you disable hibernatation of your computer while running a computation. In the mean time perhaps check out a [whirlwind introduction to computational fluid dynamics](https://www.youtube.com/watch?v=EYPH6ef3dDA). We're using OpenFOAM as our CFD software, so after the video maybe skim this software's [user guide which introduces the main inputs into the computation](https://doc.cfd.direct/openfoam/user-guide-v13/cases) for an overview of what aspects can be varied. We're thinking this will mostly be focussed on if you have problems running a computation successfully (your computation has _convergence_ problems before your total simulation time has been reached, in other words).
 
 ## 3. Novel face-shield design
 The computation above simulates flow around a conventional face shield (labelled 'normal'). We've also provided a novel design where surfaces cover the bottom and sides, with a gap near the wearer's face (labelled 'enclosed'). Relevant differences between these designs are shown below:
